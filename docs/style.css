@@ -27,6 +27,43 @@
 .card p {
   margin-top: 10px;
 }
+.btn-buy {
+  position: absolute;
+  bottom: px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Tambahkan margin-top */
+}
+.btn-buy:hover {
+  background-color: #0056b3;
+}
+
+.btn-cancel {
+  position: absolute;
+  bottom: px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Tambahkan margin-top */
+}
+.btn-cancel:hover {
+  background-color: #0056b3;
+}
 
 .buy-button {
   position: absolute;
