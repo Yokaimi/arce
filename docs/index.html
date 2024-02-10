@@ -24,6 +24,18 @@
       padding: 20px;
       border-radius: 10px;
       text-align: center;
+      animation: slideIn 0.5s forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -56,7 +68,7 @@
     <div class="popup-content">
       <img src="" alt="Product Image" id="popup-image">
       <h2 id="popup-title"></h2>
-      <input type="text" placeholder="Enter your details">
+      <input type="text" placeholder="Amount">
       <button id="btn-buy">Buy</button>
       <button id="btn-cancel">Cancel</button>
     </div>
