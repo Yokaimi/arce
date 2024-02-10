@@ -126,7 +126,7 @@
     }
     .popup-content {
       background-color: #fff;
-      padding: 70px;
+      padding: 50px;
       border-radius: 10px;
       text-align: center;
       animation: slideIn 0.5s forwards;
