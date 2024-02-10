@@ -6,7 +6,7 @@
   <title>Arcexy Store</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Tambahkan CSS untuk popup */
+    /* Menambahkan gaya untuk popup */
     .popup {
       display: none;
       position: fixed;
@@ -15,22 +15,15 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
-      z-index: 999;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
     }
-
     .popup-content {
       background-color: #fff;
-      width: 50%;
-      max-width: 500px;
-      margin: 100px auto;
       padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .popup img {
-      max-width: 100%;
-      border-radius: 5px;
+      border-radius: 10px;
+      text-align: center;
     }
   </style>
 </head>
@@ -61,44 +54,57 @@
   <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <img id="popup-image" src="" alt="Popup Image">
-      <h2 id="popup-title">Popup Title</h2>
-      <p id="popup-description">Popup Description</p>
-      <input type="text" placeholder="Enter text">
-      <button class="buy-button">Buy</button>
+      <img src="" alt="Product Image" id="popup-image">
+      <h2 id="popup-title"></h2>
+      <input type="text" placeholder="Enter your details">
+      <button id="btn-buy">Buy</button>
+      <button id="btn-cancel">Cancel</button>
     </div>
   </div>
 
   <script>
+    // Mendapatkan elemen tombol beli
     const buyButtons = document.querySelectorAll('.buy-button');
+
+    // Mendapatkan elemen popup
     const popup = document.getElementById('popup');
+
+    // Mendapatkan elemen konten popup
     const popupImage = document.getElementById('popup-image');
     const popupTitle = document.getElementById('popup-title');
-    const popupDescription = document.getElementById('popup-description');
 
+    // Mengatur tindakan saat tombol beli diklik
     buyButtons.forEach(button => {
       button.addEventListener('click', () => {
-        // Ambil informasi dari card yang sesuai
-        const card = button.parentElement;
-        const imageSrc = card.querySelector('img').src;
-        const title = card.querySelector('h2').textContent;
-        const description = card.querySelector('p').textContent;
+        // Mendapatkan detail produk
+        const card = button.parentNode;
+        const image = card.querySelector('img').src;
+        const title = card.querySelector('h2').innerText;
 
-        // Set nilai popup
-        popupImage.src = imageSrc;
-        popupTitle.textContent = title;
-        popupDescription.textContent = description;
+        // Memperbarui konten popup dengan detail produk
+        popupImage.src = image;
+        popupTitle.innerText = title;
 
-        // Tampilkan popup
-        popup.style.display = 'block';
+        // Menampilkan popup
+        popup.style.display = 'flex';
       });
     });
 
-    function closePopup() {
-      // Sembunyikan popup ketika tombol close ditekan
+    // Mengatur tindakan saat tombol membeli dan membatalkan diklik
+    const btnCancel = document.getElementById('btn-cancel');
+    const btnBuy = document.getElementById('btn-buy');
+
+    btnCancel.addEventListener('click', () => {
+      // Menyembunyikan popup saat tombol membatalkan diklik
       popup.style.display = 'none';
-    }
+    });
+
+    btnBuy.addEventListener('click', () => {
+      // Tambahkan logika pembelian di sini
+      console.log('Product purchased');
+      // Menyembunyikan popup setelah pembelian
+      popup.style.display = 'none';
+    });
   </script>
 </body>
 </html>
