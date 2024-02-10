@@ -280,3 +280,74 @@ input:checked + .slider:before {
   font-size: 16px; /* Ukuran teks */
   margin-bottom: 20px; /* Atur margin bawah */
 }
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh; /* Sesuaikan dengan kebutuhan */
+}
+
+.wrapper .static-txt {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 200;
+}
+
+.wrapper .dynamic-txts {
+  margin-left: 15px;
+  height: 90px;
+  line-height: 90px;
+  overflow: hidden;
+}
+
+.dynamic-txts li {
+  list-style: none;
+  color: #000000;
+  font-size: 50px;
+  font-weight: 500;
+  position: relative;
+  top: 0%;
+  animation: slide 12s steps(4) infinite;
+}
+
+@keyframes slide {
+  100% {
+    top: -360px;
+  }
+}
+
+.dynamic-txts li span {
+  position: relative;
+  margin: 5px 0;
+  line-height: 90px;
+}
+
+.dynamic-txts li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6%;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  border-left: 2px solid #2c2828;
+  animation: typing 3s steps(10) infinite;
+}
+
+@keyframes typing {
+  40%, 60% {
+    left: calc(100% + 25px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
