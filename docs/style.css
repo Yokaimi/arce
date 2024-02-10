@@ -142,3 +142,17 @@
         opacity: 1;
       }
     }
+
+.discord-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.discord-img {
+  width: 50px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
+  height: 50px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
+  border-radius: 50%; /* Agar ikon menjadi lingkaran */
+  border: 2px solid #fff; /* Ubah warna border sesuai kebutuhan */
+}
+
