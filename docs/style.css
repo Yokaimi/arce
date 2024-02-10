@@ -252,3 +252,31 @@ input:checked + .slider:before {
   top: 70%; /* Position the text 50% from the top */
   left: 30%;
 }
+
+@keyframes LOL {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.popup-content {
+  text-align: center; /* Pusatkan teks */
+  
+}
+
+.popup h2 {
+  color: #333333; /* Warna teks */
+  font-size: 24px; /* Ukuran teks */
+  margin-bottom: 10px; /* Atur margin bawah */
+}
+
+.popup p {
+  color: #666666; /* Warna teks */
+  font-size: 16px; /* Ukuran teks */
+  margin-bottom: 20px; /* Atur margin bawah */
+}
