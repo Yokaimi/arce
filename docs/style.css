@@ -51,7 +51,7 @@
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 40px; /* Tambahkan margin-top */
+  margin-top: -10px; /* Tambahkan margin-top */
 }
 .btn-buy:hover {
   background-color: #0056b3;
@@ -70,7 +70,7 @@
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 40px; /* Tambahkan margin-top */
+  margin-top:-10px; /* Tambahkan margin-top */
 }
 .btn-cancel:hover {
   background-color: #b30000;
