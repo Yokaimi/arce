@@ -11,7 +11,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 20px;
-  position: relative; /* Menjadikan posisi tombol absolute relatif terhadap kartu */
+  position: relative; /* Menambahkan posisi relatif untuk kontainer kartu */
 }
 
 .card img {
@@ -29,13 +29,13 @@
 }
 
 .buy-button {
-  position: absolute; /* Mengatur posisi tombol */
+  position: absolute; /* Mengatur posisi tombol secara absolut */
+  left: 50%; /* Mengatur tombol di tengah horizontal */
   bottom: 20px; /* Mengatur jarak dari bawah */
-  left: 50%; /* Mengatur posisi horizontal di tengah */
-  transform: translateX(-50%); /* Menggeser tombol sejauh setengah lebar tombol ke kiri */
+  transform: translateX(-50%); /* Menggeser tombol ke kiri sebesar 50% lebar tombol */
   padding: 10px 20px;
-  background-color: #007bff; /* Warna latar belakang */
-  color: white;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -43,22 +43,5 @@
 }
 
 .buy-button:hover {
-  background-color: #0056b3; /* Warna latar belakang saat digulir */
-}
-
-/* Media queries untuk responsif di berbagai perangkat */
-@media (max-width: 768px) {
-  .container {
-    margin-top: 30px;
-  }
-
-  .card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 576px) {
-  .card {
-    width: calc(100% - 20px);
-  }
+  background-color: #0056b3;
 }
