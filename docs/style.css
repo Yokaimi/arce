@@ -1,14 +1,19 @@
+body {
+  background-color: white;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
+
 }
 
 .card {
   width: calc(33.33% - 20px);
   margin: 0 10px 60px;
-  box-shadow: 0 0px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 70px;
   position: relative; /* Tambahkan posisi relatif */
@@ -120,7 +125,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 255, 0.534);
       z-index: 9999;
       justify-content: center;
       align-items: center;
@@ -167,3 +172,83 @@
   }
 }
 
+.dark-mode .popup-content {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+}
+
+.dark-mode body {
+  background-color: rgb(0, 0, 0);
+}
+
+.dark-mode .card {
+  box-shadow: rgba(255, 255, 255, 0.2);
+}
+
+.switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: auto; /* Change width to auto to fit content */
+  height: 34px;
+  left: 7%;
+  bottom: -50%;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 150%;
+  right: -130%;
+  bottom: -50%;
+  border-radius: 50px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 50px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translateX(46px);
+  transform: translateX(46px);
+}
+
+.dark-mode-text {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; /* Adjust margin as needed */
+  font-size: 20px; /* Adjust font size as needed */
+  top: 70%; /* Position the text 50% from the top */
+  left: 30%;
+}
