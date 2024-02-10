@@ -145,14 +145,24 @@
 
 .discord-icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 50px;
+  right: 50px;
+  animation: pulse 1s infinite alternate; /* Menggunakan animasi pulse dengan durasi 2 detik, dan infinite agar terus berulang */
 }
 
 .discord-img {
-  width: 50px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
-  height: 50px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
+  width: 60px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
+  height: 60px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
   border-radius: 50%; /* Agar ikon menjadi lingkaran */
   border: 2px solid #fff; /* Ubah warna border sesuai kebutuhan */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Skala awal */
+  }
+  100% {
+    transform: scale(1.1); /* Skala maksimum */
+  }
 }
 
