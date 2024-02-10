@@ -30,7 +30,7 @@
 .btn-buy {
   position: absolute;
   bottom: px;
-  left: 40%;
+  left: 35%;
   transform: translateX(-50%);
   background-color: #007bff;
   color: #ffffff;
@@ -49,7 +49,7 @@
 .btn-cancel {
   position: absolute;
   bottom: px;
-  left: 70%;
+  left: 65%;
   transform: translateX(-50%);
   background-color: #ff0000;
   color: #ffffff;
