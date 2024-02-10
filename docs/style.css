@@ -28,20 +28,24 @@
 }
 
 .buy-button {
-  display: block;
-  width: 100%;
-  padding: 10px 0;
-  background-color: #007bff;
-  color: #fff;
+  position: absolute; /* Menempatkan tombol secara absolut */
+  bottom: 20px; /* Jarak dari bawah */
+  left: 50%; /* Pusat horizontal */
+  transform: translateX(-50%); /* Untuk memusatkan tombol */
+  background-color: #007bff; /* Warna latar belakang */
+  color: #ffffff; /* Warna teks */
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .buy-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Warna latar belakang saat hover */
 }
+
 
 /* Media queries untuk responsif di berbagai perangkat */
 @media (max-width: 768px) {
