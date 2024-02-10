@@ -3,23 +3,34 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
-  position: relative; /* Tambahkan posisi relatif pada .container */
 }
 
 .card {
-  position: relative; /* Tambahkan posisi relatif pada .card */
   width: calc(33.33% - 20px);
   margin: 0 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 70px;
+  position: relative; /* Tambahkan posisi relatif */
+}
+
+.card img {
+  width: 100%;
   border-radius: 5px;
-  padding: 20px;
+}
+
+.card h2 {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+.card p {
+  margin-top: 10px;
 }
 
 .buy-button {
-  /* Hapus properti position: absolute */
-  /* Tambahkan posisi absolut untuk tombol */
   position: absolute;
-  bottom: 20px;
+  bottom: px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #007bff;
@@ -30,13 +41,13 @@
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 20px; /* Tambahkan margin-top */
 }
 
 .buy-button:hover {
   background-color: #0056b3;
 }
 
-/* Media queries untuk responsif di berbagai perangkat */
 @media (max-width: 768px) {
   .container {
     margin-top: 30px;
