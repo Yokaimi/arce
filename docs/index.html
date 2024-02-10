@@ -38,6 +38,18 @@
     </div>
   </div>
 
+  <div class="popup" id="popup-welcome">
+    <div class="popup-content">
+      <h2>Halo Selamat Datang, Ini Adalah Website Arcexy Store</h2>
+    </div>
+  </div>
+  
+  <div class="popup" id="popup-beta">
+    <div class="popup-content">
+      <h2>This Website Still Beta</h2>
+    </div>
+  </div>
+  
   <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
@@ -58,6 +70,37 @@
   </a>
   
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Tampilkan popup pertama
+      const popupWelcome = document.getElementById('popup-welcome');
+      popupWelcome.style.display = 'flex';
+  
+  // Animasikan popup pertama dari atas ke tengah
+
+      popupWelcome.style.animation = 'LOL 0.5s forwards';
+      
+
+  // Sembunyikan popup pertama setelah 2 detik
+      setTimeout(function() {
+        popupWelcome.style.animation = 'LOL 0.5s forwards';
+        popupWelcome.style.display = 'none';
+      }, 2000);
+
+  // Tampilkan popup kedua setelah popup pertama tertutup
+      setTimeout(function() {
+        const popupBeta = document.getElementById('popup-beta');
+        popupBeta.style.display = 'flex';
+  
+    // Animasikan popup kedua dari atas ke tengah
+        popupBeta.style.animation = 'LOL 0.5s forwards';
+
+    // Sembunyikan popup kedua setelah 2 detik
+        setTimeout(function() {
+          popupBeta.style.display = 'none';
+        }, 2000);
+      }, 2500); // Menunggu 2.5 detik sebelum menampilkan popup kedua
+    });
+
     // Mendapatkan elemen tombol beli
     const buyButtons = document.querySelectorAll('.buy-button');
 
@@ -148,6 +191,9 @@
         bodycontent.style.color = 'rgb(0, 0, 0)'; // Misalnya kembali ke warna teks aslinya
       }
     });
+  </script>
+  <script>
+    
   </script>
 </body>
 </html>
