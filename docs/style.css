@@ -27,6 +27,17 @@
 .card p {
   margin-top: 10px;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  margin-bottom: 10px;
+}
+
 .btn-buy {
   position: absolute;
   bottom: px;
