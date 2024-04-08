@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HAHA ANJAY</title>
+    <title>CIP 5 DL</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,52 +21,18 @@
     </style>
 </head>
 <body>
-    <div id="text">HAHA ANJAY</div>
+    <div id="text">HAHAHA LOL
+    FUCK
+    SABAR KONTOY</div>
     <script>
         const textElement = document.getElementById("text");
 
         function changeColor() {
-            const targetColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-            const currentColor = textElement.style.color;
-
-            // Convert current and target colors to arrays
-            const currentColorArray = currentColor.match(/(\d+), (\d+), (\d+)/).slice(1).map(Number);
-            const targetColorArray = targetColor.match(/(\d+), (\d+), (\d+)/).slice(1).map(Number);
-
-            // Calculate the difference between current and target colors
-            const colorDiffArray = targetColorArray.map((target, i) => target - currentColorArray[i]);
-
-            // Set up an animation loop
-            let t = 0;
-            const animationDuration = 1000; // Adjust the duration as needed
-            const animate = () => {
-                if (t < animationDuration) {
-                    t += 10;
-                    const progress = t / animationDuration;
-                    const newColorArray = currentColorArray.map((color, i) => Math.floor(color + colorDiffArray[i] * progress));
-                    const newColor = `rgb(${newColorArray[0]}, ${newColorArray[1]}, ${newColorArray[2]})`;
-                    textElement.style.color = newColor;
-                    requestAnimationFrame(animate);
-                } else {
-                    // Color change finished, call `changeColor` again for the next color
-                    changeColor();
-                }
-            };
-
-            // Fade out current color
-            textElement.style.transition = "opacity 1s ease-out";
-            textElement.style.opacity = 0;
-
-            setTimeout(() => {
-                // Set new color and fade in
-                textElement.style.color = targetColor;
-                textElement.style.transition = "opacity 1s ease-in";
-                textElement.style.opacity = 1;
-                animate();
-            }, 1000); // Adjust fade duration as needed
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            textElement.style.color = randomColor;
         }
 
-        changeColor(); // Start the initial color change
+        setInterval(changeColor, 500); // Change color every 1 second
     </script>
 </body>
 </html>
