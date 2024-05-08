@@ -9,7 +9,7 @@ function typeText(text, element) {
     if (index >= text.length) {
       clearInterval(interval);
       setTimeout(() => {
-        
+        deleteText(element, text);
       }, 2000);
     }
   }, 100);
@@ -33,6 +33,7 @@ fetch('category.json')
  .then(response => response.json())
  .then(categories => {
     const categoryList = document.getElementById('category-list');
+    const overlay = document.getElementById('overlay'); // Dapatkan elemen overlay
 
     categories.forEach(category => {
       const listItem = document.createElement('li');
@@ -49,8 +50,21 @@ fetch('category.json')
       arrowIcon.classList.add('icon-arrow-right');
       categoryButton.appendChild(arrowIcon);
 
+      // Tambahkan event listener untuk mengarahkan pengguna ke halaman yang sesuai
+      categoryButton.addEventListener('click', () => {
+          overlay.style.display = 'flex'; // Tampilkan overlay saat tombol diklik
+          window.location.href = `/${category.id}.html`;
+      });
+
       listItem.appendChild(categoryButton);
       categoryList.appendChild(listItem);
+    });
+
+    // Sembunyikan overlay setelah permintaan selesai
+    document.addEventListener('readystatechange', () => {
+        if (document.readyState === 'complete') {
+            overlay.style.display = 'none';
+        }
     });
   })
  .catch(error => console.error('Error fetching or parsing JSON:', error));
