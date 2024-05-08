@@ -7,10 +7,11 @@ body {
   align-items: center;
   min-height: 100vh;
   font-family: "Roboto Mono", monospace;
+  background-color: #ececec;
 }
 
 button {
-  margin: 10px 50px 10px 0; /* Adjusted margin */
+  margin: 10px 45px 10px 0; /* Adjusted margin */
   font-family: inherit;
   position: relative;
 }
@@ -89,3 +90,15 @@ h2 {
   transform: translateX(-6px);
 }
 /* End of Slide Button  */
+
+.blinking-caret {
+  animation: blinking-caret 1s infinite;
+  color: black;
+}
+
+@keyframes blinking-caret {
+  0% { text-decoration: blink; }
+  50% { text-decoration: none; }
+  100% { text-decoration: blink; }
+}
+
