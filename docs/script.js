@@ -15,17 +15,6 @@ function typeText(text, element) {
   }, 100);
 }
 
-function deleteText(element, text) {
-  let index = text.length - 1;
-  let interval = setInterval(() => {
-    element.textContent = text.substring(0, index);
-    index--;
-    if (index < 0) {
-      clearInterval(interval);
-      typeText(text, element);
-    }
-  }, 100);
-}
 
 typeText(text, typingHeader);
 
