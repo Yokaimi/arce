@@ -9,7 +9,7 @@ function typeText(text, element) {
     if (index >= text.length) {
       clearInterval(interval);
       setTimeout(() => {
-        deleteText(element, text);
+
       }, 2000);
     }
   }, 100);
