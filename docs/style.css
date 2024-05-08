@@ -1,353 +1,91 @@
+/* Page styling -- Not needed to replicate button visuals. */
 body {
-  background-color: white;
-}
-
-.container {
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 50px;
-
-}
-
-.card {
-  width: calc(33.33% - 20px);
-  margin: 0 10px 60px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  padding: 100px 50px;
-  position: relative; /* Tambahkan posisi relatif */
-}
-
-.card img {
-  width: 100%;
-  margin-top: -40px;
-  border-radius: 5px;
-}
-
-.card h2 {
-  margin-top: 50px;
-  font-size: 1.5em;
-}
-
-.card p {
-  margin-top: 20px;
-}
-
-.input-container {
-  display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.input-container input {
-  margin-bottom: 10px;
-}
-
-.btn-buy {
-  position: absolute;
-  bottom: px;
-  left: 35%;
-  transform: translateX(-50%);
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 26px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: -10px; /* Tambahkan margin-top */
-}
-.btn-buy:hover {
-  background-color: #0056b3;
-}
-
-.btn-cancel {
-  position: absolute;
-  bottom: px;
-  left: 65%;
-  transform: translateX(-50%);
-  background-color: #ff0000;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 15px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top:-10px; /* Tambahkan margin-top */
-}
-.btn-cancel:hover {
-  background-color: #b30000;
-}
-
-.buy-button {
-  position: absolute;
-  bottom: px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 120px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 30px; /* Tambahkan margin-top */
-}
-
-.buy-button:hover {
-  background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-  .container {
-    margin-top: 30px;
-  }
-
-  .card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 576px) {
-  .card {
-    width: calc(100% - 20px);
-  }
-}
-
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.534);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-    }
-    .popup-content {
-      background-color: #fff;
-      padding: 50px;
-      border-radius: 10px;
-      text-align: center;
-      animation: slideIn 0.5s forwards;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-.discord-icon {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  animation: pulse 1s infinite alternate; /* Menggunakan animasi pulse dengan durasi 2 detik, dan infinite agar terus berulang */
-}
-
-.discord-img {
-  width: 60px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
-  height: 60px; /* Sesuaikan ukuran ikon Discord sesuai kebutuhan */
-  border-radius: 50%; /* Agar ikon menjadi lingkaran */
-  border: 2px solid #fff; /* Ubah warna border sesuai kebutuhan */
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1); /* Skala awal */
-  }
-  100% {
-    transform: scale(1.1); /* Skala maksimum */
-  }
-}
-
-.dark-mode .popup-content {
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-}
-
-.dark-mode body {
-  background-color: rgb(0, 0, 0);
-}
-
-.dark-mode .card {
-  box-shadow: rgba(255, 255, 255, 0.2);
-}
-
-.switch-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  font-family: "Roboto Mono", monospace;
 }
 
-.switch {
+button {
+  margin: 10px 50px 10px 0; /* Adjusted margin */
+  font-family: inherit;
   position: relative;
-  display: inline-block;
-  width: auto; /* Change width to auto to fit content */
-  height: 34px;
-  left: 7%;
-  bottom: -50%;
 }
 
-.switch input {display:none;}
-
-.slider {
-  position: absolute;
+h2 {
+  text-align: center;
+  animation: fade-in-bottom 1s ease-out;
+}
+/* Slide button styling */
+.slide {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 30px 13px;
+  outline: 0;
+  border: 1px solid black;
   cursor: pointer;
-  top: 50%;
-  left: 150%;
-  right: -130%;
-  bottom: -50%;
-  border-radius: 50px;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  border-radius: 50px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(46px);
-  -ms-transform: translateX(46px);
-  transform: translateX(46px);
-}
-
-.dark-mode-text {
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px; /* Adjust margin as needed */
-  font-size: 20px; /* Adjust font size as needed */
-  top: 70%; /* Position the text 50% from the top */
-  left: 30%;
+  background-color: rgba(0, 0, 0, 0);
+  width: 300px;
+  animation: fade-in-bottom 2s ease-out;
 }
 
-@keyframes LOL {
-  from {
-    transform: translateY(-100%);
+
+@keyframes fade-in-bottom {
+  0% {
+    transform: translateY(100%);
     opacity: 0;
   }
-  to {
+  30% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
 }
 
-.popup-content {
-  text-align: center; /* Pusatkan teks */
-  
-}
-
-.popup h2 {
-  color: #333333; /* Warna teks */
-  font-size: 24px; /* Ukuran teks */
-  margin-bottom: 10px; /* Atur margin bawah */
-}
-
-.popup p {
-  color: #666666; /* Warna teks */
-  font-size: 16px; /* Ukuran teks */
-  margin-bottom: 20px; /* Atur margin bawah */
-}
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30vh; /* Sesuaikan dengan kebutuhan */
-}
-
-.wrapper .static-txt {
-  color: #fff;
-  font-size: 50px;
-  font-weight: 200;
-}
-
-.wrapper .dynamic-txts {
-  margin-left: 15px;
-  height: 90px;
-  line-height: 90px;
-  overflow: hidden;
-}
-
-.dynamic-txts li {
-  list-style: none;
-  color: #000000;
-  font-size: 50px;
-  font-weight: 500;
-  position: relative;
-  top: 0%;
-  animation: slide 12s steps(4) infinite;
-}
-
-@keyframes slide {
-  100% {
-    top: -360px;
-  }
-}
-
-.dynamic-txts li span {
-  position: relative;
-  margin: 5px 0;
-  line-height: 90px;
-}
-
-.dynamic-txts li span::after {
-  content: "";
+.slide i {
+  opacity: 0;
+  font-size: 13px;
+  transition: 0.2s;
   position: absolute;
-  left: 0;
-  top: 6%;
-  height: 100%;
+  right: 10px;
+  top: 21px;
+  transition: transform 1;
+}
+
+#category-list {
+  list-style-type: none;
+}
+
+.slide div {
+  transition: transform 0.8s;
+}
+
+.slide:hover div {
+  transform: translateX(-6px);
+}
+
+
+.slide::after {
+  content: "";
+  background-color: #fff067;
   width: 100%;
-  background: #ffffff;
-  border-left: 2px solid #2c2828;
-  animation: typing 3s steps(10) infinite;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
 }
 
-@keyframes typing {
-  40%, 60% {
-    left: calc(100% + 25px);
-  }
-  100% {
-    left: 0;
-  }
+.slide:hover i {
+  opacity: 1;
+  transform: translateX(-6px);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
+/* End of Slide Button  */
