@@ -48,6 +48,22 @@
         button:hover {
             background-color: #45a049;
         }
+        .slider1 {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .slides1 {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides1 img {
+            width: 100%;
+            border-radius: 8px;
+        }
         .slider {
             position: relative;
             width: 100%;
@@ -88,88 +104,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-        <div class="container">
-
-    </div>
-        <div class="container">
-
-    </div>
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
-    <div class="container">
-
-    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <div class="container">
     <h1>Detail Produk</h1>
     <div class="slider">
@@ -269,7 +204,21 @@
          </div>
         <div>
 
-
+            <div class="container">
+                <h1>Beberapa Testimoni</h1>
+                <div class="slider1">
+                    <div class="slides1">
+                        <img src="w1.png" alt="Image 1">
+                        <img src="w2.png" alt="Image 2">
+                        <img src="w3.png" alt="Image 3">
+                        <img src="w4.png" alt="Image 4">
+                        <img src="w5.png" alt="Image 5">
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button onclick="prevSlide1()">&#10094;</button>
+                    <button onclick="nextSlide1()">&#10095;</button>
+                </div>
 </div>
 
 <div class="container">
@@ -283,6 +232,9 @@
 
 <script>
     let currentSlide = 0;
+    let currentSlide1 = 0;
+    const slides1 = document.querySelector('.slides1');
+    const slideImages1 = document.querySelectorAll('.slides1 img');
     const slides = document.querySelector('.slides');
     const slideImages = document.querySelectorAll('.slides img');
 
@@ -299,8 +251,22 @@
         showSlide(currentSlide - 1);
     }
 
+    function showSlide1(index) {
+        currentSlide1 = (index + slideImages1.length) % slideImages1.length;
+        slides1.style.transform = `translateX(${-currentSlide1 * 100}%)`;
+    }
+
+    function nextSlide1() {
+        showSlide1(currentSlide1 + 1);
+    }
+
+    function prevSlide1() {
+        showSlide1(currentSlide1 - 1);
+    }
+
     setInterval(() => {
         nextSlide();
+        nextSlide1();
     }, 3000);
 
     function sendMessage() {
@@ -308,7 +274,7 @@
         const quantity = document.getElementById('quantity').value;
         const flavor = document.getElementById('flavor').value;
         const phoneNumber = '088225479087';
-        const message = `Halo Kak saya ingin order ${quantity} setrika uap dong.\nIni alamat saya:\n\nNama: ${name}\nAlamat: ${flavor}\n\nMohon segera diproses yaa`;
+        const message = `Halo Kak saya ingin order ${quantity} setrika uap dong.\nIni alamat saya\n\nNama: ${name}\nAlamat: ${flavor}\n\nMohon segera diproses yaa`;
         const whatsappUrl = `https://wa.me/6288225479087?text=${encodeURIComponent(message)}`;
         
         window.location.href = whatsappUrl;
