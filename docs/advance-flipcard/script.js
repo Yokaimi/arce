@@ -152,7 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
               <h1>Advance FlashCard</h1>
               <p>Petunjuk: Tekan card untuk membalikkan posisinya</p>
               <hr>
-              <button id="addCardBtn">+ Card</button>
+              <div class="jir">
+              <button id="addCardBtn">+ Tambah Card</button>
+              </div>
             </div>
         `;
         loadFlashcards();
