@@ -161,9 +161,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const container = document.getElementById('flashcardContainer');
         container.innerHTML = `
             <div>
-              <h1>Komponen Bagian Faisal Coy</h1>
+              <h1>Advance FlashCard</h1>
+              <p>Petunjuk: Tekan card untuk membalikkan posisinya</p>
               <hr>
-              <button id="addCardBtn">+</button>
+              <button id="addCardBtn">+ Card</button>
             </div>
         `;
         loadFlashcards();
