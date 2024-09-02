@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
       <h1>Advance FlashCard</h1>
       <p>Tekan card untuk membalikkan posisinya</p>
       <hr>
-      <button id="addCardBtn">+</button>
+      <button id="addCardBtn">+ Card</button>
     </div>
   </div>
 
@@ -23,22 +23,22 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <form id="cardForm">
-        <label class="modalCoy" for="cardFrontType">Front Type:</label>
+        <label class="modalCoy" for="cardFrontType">Bagian depan:</label>
         <select class="modalCoy" id="cardFrontType">
-          <option value="text">Text</option>
-          <option value="image">Image</option>
+          <option value="text">Kata/Kalimat</option>
+          <option value="image">Gambar</option>
         </select>
         <div id="frontInput">
-          <label class="modalCoy" for="cardFrontText">Front Text:</label>
-          <input type="text" class="modalCoy" id="cardFrontText" placeholder="Enter front text">
+          <label class="modalCoy" for="cardFrontText">Kata/Kalimat bagian depan:</label>
+          <input type="text" class="modalCoy" id="cardFrontText" placeholder="Ketik disini">
         </div>
         <div id="imageInput" style="display:none;">
-          <label class="modalCoy" for="cardFrontImage">Front Image:</label>
+          <label class="modalCoy" for="cardFrontImage">Gambar bagian depan:</label>
           <input class="modalCoy" type="file" id="cardFrontImage" accept="image/*">
         </div>
-        <label class="modalCoy" for="cardBack">Back Text:</label>
-        <input class="modalCoy" type="text" id="cardBack" placeholder="Enter back text">
-        <button class="jarak" type="submit">Submit</button>
+        <label class="modalCoy" for="cardBack">Kata/Kalimat bagian belakang:</label>
+        <input class="modalCoy" type="text" id="cardBack" placeholder="Ketik disini">
+        <button class="jarak" type="submit">Gasken Cuy</button>
       </form>
     </div>
   </div>
@@ -47,9 +47,9 @@
   <div id="confirmModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p class="font-a">Apakah Anda serius ingin menghapus flashcard ini?</p>
-      <button id="cancelDelete">Cancel</button>
-      <button id="confirmDelete">Confirm</button>
+      <p class="font-a">Rill nih mau hapus card?</p>
+      <button id="cancelDelete">Gajadi</button>
+      <button id="confirmDelete">Pake Nanya</button>
     </div>
   </div>
 
