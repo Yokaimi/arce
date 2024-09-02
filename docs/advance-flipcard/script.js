@@ -152,14 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         container.innerHTML = `
             <div>
               <h1>Advance FlashCard</h1>
-              <p>Petunjuk: Tekan card untuk membalikkan posisinya</p>
-              <hr>
-              <div class="jir">
-              <button id="addCardBtn">+ Tambah Card</button>
-              </div>
-            </div>
-            <div>
-              <h1>Advance FlashCard</h1>
               <p><b>Petunjuk</b>:<br>• Tekan tombol <u><em>+ Tambah Card</em></u> untuk menambahkan Card baru.<br>• Jika ingin menggunakan gambar maka ganti <u><em>Bagian Depan</em></u> menjadi <u><em>Gambar</em></u>, bukan <u><em>Kata/Kalimat</em></u>.<br>• Tekan card untuk membalikkan posisinya.</p>
               <hr>
             <div class="jir">
