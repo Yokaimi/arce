@@ -8,9 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentCardIdToDelete;
 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    };
+
+    function setupAddCardBtn() {
+        const addCardBtn = document.getElementById("addCardBtn");
+        if (addCardBtn) {
+            addCardBtn.onclick = function () {
+                modal.style.display = "block";
+            };
+        }
+    }
+
+
     span.onclick = function () {
         modal.style.display = "none";
     };
@@ -52,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         form.reset();
-        cardFrontType.value = "text";  // Reset to default
+        cardFrontType.value = "text"; 
         frontInput.style.display = "block";
         imageInput.style.display = "none";
         modal.style.display = "none";
@@ -135,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let flashcards = getFlashcards();
         flashcards = flashcards.filter(card => card.id !== cardId);
         saveFlashcards(flashcards);
-        reloadFlashcards(); 
+        reloadFlashcards();
     }
 
     function getFlashcards() {
@@ -154,12 +162,13 @@ document.addEventListener("DOMContentLoaded", function () {
               <h1>Advance FlashCard</h1>
               <p><b>Petunjuk</b>:<br>• Tekan tombol <u><em>+ Tambah Card</em></u> untuk menambahkan Card baru.<br>• Jika ingin menggunakan gambar maka ganti <u><em>Bagian Depan</em></u> menjadi <u><em>Gambar</em></u>, bukan <u><em>Kata/Kalimat</em></u>.<br>• Tekan card untuk membalikkan posisinya.</p>
               <hr>
-            <div class="jir">
+              <div class="jir">
                 <button class="jir" id="addCardBtn">+ Tambah Card</button>
-            </div>
+              </div>
             </div>
         `;
         loadFlashcards();
+        setupAddCardBtn(); 
     }
 
     function loadFlashcards() {
@@ -167,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         flashcards.forEach(createFlashcardElement);
     }
 
+    setupAddCardBtn(); 
     loadFlashcards();
 });
 
