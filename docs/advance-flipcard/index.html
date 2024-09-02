@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="flashcard-container" id="flashcardContainer">
+    <div>
+      <h1>Komponen Bagian Faisal Coy</h1>
+      <hr>
+      <button id="addCardBtn">+</button>
+    </div>
+  </div>
+
+  <!-- Modal Form -->
+  <div id="cardModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="cardForm">
+        <label class="modalCoy" for="cardFrontType">Front Type:</label>
+        <select class="modalCoy" id="cardFrontType">
+          <option value="text">Text</option>
+          <option value="image">Image</option>
+        </select>
+        <div id="frontInput">
+          <label class="modalCoy" for="cardFrontText">Front Text:</label>
+          <input type="text" class="modalCoy" id="cardFrontText" placeholder="Enter front text">
+        </div>
+        <div id="imageInput" style="display:none;">
+          <label class="modalCoy" for="cardFrontImage">Front Image:</label>
+          <input class="modalCoy" type="file" id="cardFrontImage" accept="image/*">
+        </div>
+        <label class="modalCoy" for="cardBack">Back Text:</label>
+        <input class="modalCoy" type="text" id="cardBack" placeholder="Enter back text">
+        <button class="jarak" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p class="font-a">Apakah Anda serius ingin menghapus flashcard ini?</p>
+      <button id="cancelDelete">Cancel</button>
+      <button id="confirmDelete">Confirm</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <div>
+  <footer>&copy; Copyright <a class="lol" href="https://www.instagram.com/faisalamiruddin_">Faisal Amiruddin</a> 2024</footer>
+  </div>
+</body>
+
+</html>
