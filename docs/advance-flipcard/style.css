@@ -49,15 +49,17 @@ body {
 
 .flashcard .front, .flashcard .back {
     padding: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal; /* memungkinkan teks membungkus baris berikutnya */
-    display: -webkit-box;
-    -webkit-line-clamp: 8; /* batasi jumlah baris teks */
+    white-space: normal; 
+    display: flex;
+    -webkit-line-clamp: 8; 
     -webkit-box-orient: vertical;
-    height: 100%; /* menyesuaikan dengan tinggi card */
+    height: 90%; /* menyesuaikan dengan tinggi card */
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
 }
 
   .flashcard .front {
@@ -310,4 +312,3 @@ footer {
     text-decoration: none;
     transition: 0.2s ease-in-out;
 }
-
