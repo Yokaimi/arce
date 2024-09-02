@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Get modal elements
     const modal = document.getElementById("cardModal");
     const confirmModal = document.getElementById("confirmModal");
     const btn = document.getElementById("addCardBtn");
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentCardIdToDelete;
 
-    // Handle modal open and close
     btn.onclick = function () {
         modal.style.display = "block";
     };
@@ -22,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Handle form input toggle between text and image
     const cardFrontType = document.getElementById("cardFrontType");
     const frontInput = document.getElementById("frontInput");
     const imageInput = document.getElementById("imageInput");
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Handle form submission
     const form = document.getElementById("cardForm");
 
     form.addEventListener("submit", function (event) {
@@ -59,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
     });
 
-    // Save text-based flashcard
     function saveTextCard(frontText, backText) {
         const flashcards = getFlashcards();
         const newCard = { id: flashcards.length, front: frontText, back: backText, type: 'text' };
@@ -68,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
         createFlashcardElement(newCard);
     }
 
-    // Save image-based flashcard
     function saveImageCard(file, backText) {
         const reader = new FileReader();
         reader.onloadend = function () {
@@ -81,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.readAsDataURL(file);
     }
 
-    // Create flashcard element in the DOM
     function createFlashcardElement(card) {
         const container = document.getElementById('flashcardContainer');
 
@@ -121,13 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
         container.appendChild(flashcard);
     }
 
-    // Show confirmation modal
     function showConfirmModal(cardId) {
         currentCardIdToDelete = cardId;
         confirmModal.style.display = 'block';
     }
 
-    // Handle confirm and cancel delete
     confirmDelete.onclick = function () {
         deleteFlashcard(currentCardIdToDelete);
         confirmModal.style.display = 'none';
@@ -137,26 +128,23 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmModal.style.display = 'none';
     };
 
-    // Delete flashcard
     function deleteFlashcard(cardId) {
         let flashcards = getFlashcards();
         flashcards = flashcards.filter(card => card.id !== cardId);
         saveFlashcards(flashcards);
-        reloadFlashcards(); // Reload flashcards
+        reloadFlashcards(); 
     }
 
-    // Get flashcards from localStorage
     function getFlashcards() {
         const flashcards = localStorage.getItem('flashcards');
         return flashcards ? JSON.parse(flashcards) : [];
     }
 
-    // Save flashcards to localStorage
+  
     function saveFlashcards(flashcards) {
         localStorage.setItem('flashcards', JSON.stringify(flashcards));
     }
 
-    // Reload flashcards
     function reloadFlashcards() {
         const container = document.getElementById('flashcardContainer');
         container.innerHTML = `
@@ -170,12 +158,10 @@ document.addEventListener("DOMContentLoaded", function () {
         loadFlashcards();
     }
 
-    // Load existing flashcards on page load
     function loadFlashcards() {
         const flashcards = getFlashcards();
         flashcards.forEach(createFlashcardElement);
 
-        // Re-add event listener to "+" button
         const addCardBtn = document.getElementById("addCardBtn");
         addCardBtn.onclick = function () {
             modal.style.display = "block";
