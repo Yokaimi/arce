@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangu Saya</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya untuk Modal */
+        .modal {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Latar belakang hitam transparan */
+            opacity: 0; /* Awalnya transparan */
+            visibility: hidden; /* Awalnya tersembunyi */
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Transisi opacity dan visibility */
+        }
+
+        .modal.show {
+            opacity: 1; /* Ubah opacity menjadi penuh */
+            visibility: visible; /* Tampilkan modal */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Tengah layar */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 8px;
+            transform: translateY(-20px); /* Geser sedikit ke atas untuk efek transisi */
+            opacity: 0; /* Awalnya transparan */
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Transisi untuk transformasi dan opacity */
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0); /* Kembali ke posisi semula */
+            opacity: 1; /* Ubah opacity menjadi penuh */
+        }
+
+        .close-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .container {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .total {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .a {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <form class="frm" onsubmit="submitExpense(event)">        
+        <div class="container">
+            <a href="bensin.html" class="a">Lihat Total Sangu<hr></a>
+            <label class="label">Sangu Dari Ortu/Hari</label>
+            <input class="input" type="text" id="expenseInput" placeholder="Rp. 0" onkeyup="formatCurrency(this)" />
+            <button class="btn" type="submit">Tambah</button>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button class="close-btn" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // Format input sebagai mata uang
+        function formatCurrency(input) {
+            let value = input.value.replace(/[^\d]/g, '');
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            input.value = 'Rp ' + value;
+        }
+
+        // Fungsi untuk menambahkan pengeluaran
+        function submitExpense(event) {
+            event.preventDefault(); // Mencegah refresh halaman
+
+            const input = document.getElementById('expenseInput');
+            let value = input.value.replace(/[^\d]/g, ''); // Hanya angka
+
+            // Ambil total pengeluaran dari localStorage
+            let total = parseInt(localStorage.getItem('totalSangu')) || 0;
+            total += parseInt(value); // Menambahkan pengeluaran baru
+
+            // Simpan total pengeluaran ke localStorage
+            localStorage.setItem('totalSangu', total);
+
+            // Tampilkan modal dengan pesan sukses
+            showModal('Berhasil menambahkan.<br>Total sangu terbaru: Rp ' + total.toLocaleString());
+
+            // Reset input
+            input.value = '';
+        }
+
+        // Tampilkan modal
+        function showModal(message) {
+            const modal = document.getElementById('myModal');
+            const modalMessage = document.getElementById('modalMessage');
+            modalMessage.innerHTML = message; // Gunakan innerHTML untuk mendukung tag HTML
+            modal.classList.add('show'); // Tambahkan kelas 'show' untuk menampilkan modal dengan transisi
+        }
+
+        // Tutup modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.classList.remove('show'); // Hapus kelas 'show' untuk menyembunyikan modal dengan transisi
+        }
+
+        // Memuat total pengeluaran saat halaman dimuat
+        window.onload = function() {
+            let total = localStorage.getItem('totalSangu') || 0;
+            document.getElementById('total').textContent = 'Rp ' + parseInt(total).toLocaleString();
+        }
+    </script>
+</body>
+</html>
