@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galénoc - Coming Soon</title>
+    <title>Galénoc</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         body, html {
@@ -11,8 +11,8 @@
             margin: 0;
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
             text-align: center;
             color: white;
             background-color: #4973ff;
@@ -20,20 +20,22 @@
         }
 
         .content {
-            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             padding: 20px;
+            z-index: 1;
         }
 
         h1 {
             font-size: 4rem;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         p {
             font-size: 2rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .social-icons {
@@ -51,20 +53,12 @@
         }
 
         .waves {
-            position: absolute;
             width: 100%;
             height: 100px;
-            min-height: 100px;
-            max-height: 150px;
         }
 
         .waves.top {
-            top: 0;
             transform: rotate(180deg);
-        }
-
-        .waves.bottom {
-            bottom: 0;
         }
 
         .parallax > use {
@@ -107,8 +101,7 @@
                 font-size: 1.5rem;
             }
             .waves {
-                height: 40px;
-                min-height: 40px;
+                height: 60px;
             }
         }
     </style>
