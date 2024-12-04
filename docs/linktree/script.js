@@ -3,8 +3,8 @@ class PP extends React.Component {
         return (
             <div>
                 <img 
-                    src="https://i.pinimg.com/736x/ba/38/3b/ba383bb405c436b3237a90decfd2dbc4.jpg" 
-                    alt="Profile Picture"
+                    src="https://media.tenor.com/ipuTozw3PXsAAAAj/pixel-cat.gif" 
+                    alt="Image"
                 />
             </div>
         );
