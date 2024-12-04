@@ -7,8 +7,8 @@ body {
 img {
     margin-top: 30px;
     width: 50%;
-    border-radius: 50%;
-    border: solid 3px white;
+/*     border-radius: 50%; */
+/*     border: solid 3px white; */
 }
 
 .container {
