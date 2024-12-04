@@ -1,0 +1,122 @@
+body {
+    background-color: slateblue;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+}
+
+img {
+    margin-top: 30px;
+    width: 50%;
+    border-radius: 50%;
+    border: solid 3px white;
+}
+
+.container {
+    margin-top: 90px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: start;
+    padding: 20px;
+    gap: 100px;
+    /* background-color: blue; */
+}
+
+/* .text {
+    text-align: lef;
+} */
+
+.sisi-kiri {
+    /* display: flex; */
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 20px;
+    /* background-color: red; */
+}
+
+.sisi-kanan {
+    margin-top: 60px;
+    align-items: center;
+    width: 700px;
+    /* background-color: red; */
+}
+
+h1 {
+    /* font-size: 30px; */
+    color: white;
+}
+
+h2 {
+    color: rgba(240, 248, 255, 0.84);
+}
+
+.tombol {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space;
+    flex-direction: column;
+    gap: 15px;
+}
+
+a {
+    background-color: white;
+    color: slateblue;
+    font-size: 25px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border: solid 1px white;
+    
+}
+
+a:hover {
+    color: white;
+    background-color: slateblue;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        margin-top: 0px;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        padding: 0px;
+        gap: 0px;
+        /* background-color: blue; */
+    }
+
+    .sisi-kiri {
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center; */
+        gap: 0px;
+        /* background-color: red; */
+    }
+    
+    .sisi-kanan {
+        margin-top: 0px;
+        /* align-items: center; */
+        justify-content: center;
+        width: 400px;
+        /* background-color: red; */
+    }
+
+    h1 {
+        font-size: 39px;
+        /* font-family: 'Source Sans Pro'; */
+    }
+
+    h2 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 20px;
+    }
+
+    a {
+        /* font-family: 'Source Sans Pro', sans-serif; */
+    }
+
+    img {
+        width: 70%;
+    }
+}
