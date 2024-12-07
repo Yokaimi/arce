@@ -18,7 +18,7 @@ const MobileNotification = () => {
   
         timerId = setTimeout(() => {
           setVisible(false);
-        }, 3000000);
+        }, 3000);
       }
   
       return () => {
