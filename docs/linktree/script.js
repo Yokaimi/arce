@@ -1,6 +1,6 @@
 const MobileNotification = () => {
     const [visible, setVisible] = React.useState(true);
-    const [countdown, setCountdown] = React.useState(3);
+    const [countdown, setCountdown] = React.useState(7);
   
     React.useEffect(() => {
       let timerId;
@@ -18,7 +18,7 @@ const MobileNotification = () => {
   
         timerId = setTimeout(() => {
           setVisible(false);
-        }, 3000);
+        }, 7000);
       }
   
       return () => {
@@ -33,7 +33,7 @@ const MobileNotification = () => {
       <div className="mobile-notification">
         <div className="card-notif">
             <img src="capo.gif" />
-            <h2>Untuk pengalaman visual dan interaktif yang optimal, disarankan untuk mengakses situs web ini menggunakan komputer pribadi atau laptop.</h2>
+            <h2>Untuk pengalaman visual dan interaktif yang lebih optimal, disarankan untuk mengakses situs web ini menggunakan PC atau laptop.</h2>
         </div>
         <p className="close-text" onClick={() => setVisible(false)}>Ketuk disini untuk close</p>
         <p className="countdown-text">Otomatis akan ditutup dalam {countdown}</p>
