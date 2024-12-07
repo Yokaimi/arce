@@ -1,18 +1,22 @@
-function showResponsiveMessage() {
-    const messageDiv = document.getElementById('pesan-cuy');
+const MobileNotification = () => {
+  const [visible, setVisible] = useState(true);
 
-    if (window.innerWidth > 1000) {
-        messageDiv.classList.remove('hidden');
-        setTimeout(() => {
-            messageDiv.classList.add('hidden');
-        }, 3000);
-    } else {
-        messageDiv.classList.add('hidden');
-    }
-}
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 3000);
 
-window.addEventListener('DOMContentLoaded', showResponsiveMessage);
-window.addEventListener('resize', showResponsiveMessage);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div className="mobile-notification">
+      <h2>Untuk pengalaman visual dan interaktif yang optimal, disarankan untuk mengakses situs web ini menggunakan komputer pribadi atau laptop.</h2>
+    </div>
+  );
+};
 
 
 class PP extends React.Component {
@@ -83,6 +87,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
+                <MobileNotification />
                 <div className="sisi-kiri">
                     <PP />
                     <Intro />
