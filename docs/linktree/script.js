@@ -1,14 +1,19 @@
 function showResponsiveMessage() {
-const messageDiv = document.getElementById('pesan-cuy');
-    if (window.innerWidth <= 1000) {
+    const messageDiv = document.getElementById('pesan-cuy');
+
+    if (window.innerWidth > 1000) {
         messageDiv.classList.remove('hidden');
         setTimeout(() => {
             messageDiv.classList.add('hidden');
         }, 3000);
+    } else {
+        messageDiv.classList.add('hidden');
     }
 }
 
 window.addEventListener('DOMContentLoaded', showResponsiveMessage);
+window.addEventListener('resize', showResponsiveMessage);
+
 
 class PP extends React.Component {
     render() {
