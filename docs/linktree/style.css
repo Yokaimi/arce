@@ -80,24 +80,41 @@ a:hover {
 }
 
 @media screen and (max-width: 1000px) {
+    .card-notif {
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .mobile-notification p {
+        color: rgba(255, 255, 255, 0.79);
+    }
+
     .mobile-notification {
-        display: block;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.3);
+        right: 0;
+        bottom: 0;
+        background-color: rgba(22, 22, 22, 0.825);
         padding: 20px;
         z-index: 1000;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
 
     .mobile-notification h2 {
-        color: black;
-        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Trebuchet MS';
+        color: slateblue;
+        font-size: 20px;
         margin: 0;
         padding: 10px;
     }
-    
+
     .container {
         flex-direction: column;
         margin-top: 0px;
@@ -109,7 +126,7 @@ a:hover {
         gap: 0px;
         /* background-color: blue; */
     }
-    
+
     .sisi-kiri {
         /* display: flex; */
         /* flex-direction: column; */
