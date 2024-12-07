@@ -102,6 +102,10 @@ a:hover {
 }
 
 @media screen and (max-width: 1000px) {
+    #pesan-cuy {
+        display: none !important;
+    }
+    
     .container {
         flex-direction: column;
         margin-top: 0px;
@@ -112,10 +116,6 @@ a:hover {
         padding: 0px;
         gap: 0px;
         /* background-color: blue; */
-    }
-
-    #pesan-cuy {
-        display: none !important;
     }
     
     .sisi-kiri {
