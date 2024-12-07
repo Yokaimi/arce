@@ -1,3 +1,17 @@
+const links = document.querySelectorAll('a'); 
+const audio = new Audio('hover_sound.mp3');
+
+links.forEach(link => {
+  link.addEventListener('mouseover', () => {
+    audio.currentTime = 0; 
+    audio.play();
+  });
+
+  link.addEventListener('mouseout', () => {
+    audio.pause();
+  });
+});
+
 class PP extends React.Component {
     render() {
         return (
