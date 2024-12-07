@@ -1,3 +1,15 @@
+function showResponsiveMessage() {
+const messageDiv = document.getElementById('responsive-message');
+    if (window.innerWidth <= 1000) {
+        messageDiv.classList.remove('hidden');
+        setTimeout(() => {
+            messageDiv.classList.add('hidden');
+        }, 3000);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', showResponsiveMessage);
+
 class PP extends React.Component {
     render() {
         return (
