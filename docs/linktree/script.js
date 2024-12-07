@@ -1,32 +1,29 @@
-<script>
-  const hoverSound = new Audio('hover_sound.mp3');
+const hoverSound = new Audio('hover_sound.mp3');
+const hoverItems = document.querySelectorAll('.hover-item');
+let currentlyPlaying = null;
 
-  const hoverItems = document.querySelectorAll('.hover-item');
+hoverItems.forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    if (currentlyPlaying) {
+      hoverSound.pause();
+      hoverSound.currentTime = 0; 
+    }
 
-  let currentlyPlaying = null;
+    currentlyPlaying = item;
 
-  hoverItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      if (currentlyPlaying) {
-        hoverSound.pause();
-        hoverSound.currentTime = 0; 
-      }
-
-      currentlyPlaying = item;
-
-      hoverSound.play();
-    });
-
-    item.addEventListener('mouseleave', () => {
-
-      if (currentlyPlaying === item) {
-        hoverSound.pause();
-        hoverSound.currentTime = 0;
-        currentlyPlaying = null;
-      }
-    });
+    hoverSound.play();
   });
-</script>
+
+  item.addEventListener('mouseleave', () => {
+
+    if (currentlyPlaying === item) {
+      hoverSound.pause();
+      hoverSound.currentTime = 0;
+      currentlyPlaying = null;
+    }
+  });
+});
+
 
 
 class PP extends React.Component {
