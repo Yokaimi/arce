@@ -1,5 +1,5 @@
 function showResponsiveMessage() {
-const messageDiv = document.getElementById('responsive-message');
+const messageDiv = document.getElementById('pesan-cuy');
     if (window.innerWidth <= 1000) {
         messageDiv.classList.remove('hidden');
         setTimeout(() => {
