@@ -1,16 +1,33 @@
-const links = document.querySelectorAll('a'); 
-const audio = new Audio('hover_sound.mp3');
+<script>
+  const hoverSound = new Audio('hover_sound.mp3');
 
-links.forEach(link => {
-  link.addEventListener('mouseover', () => {
-    audio.currentTime = 0; 
-    audio.play();
-  });
+  const hoverItems = document.querySelectorAll('.hover-item');
 
-  link.addEventListener('mouseout', () => {
-    audio.pause();
+  let currentlyPlaying = null;
+
+  hoverItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      if (currentlyPlaying) {
+        hoverSound.pause();
+        hoverSound.currentTime = 0; 
+      }
+
+      currentlyPlaying = item;
+
+      hoverSound.play();
+    });
+
+    item.addEventListener('mouseleave', () => {
+
+      if (currentlyPlaying === item) {
+        hoverSound.pause();
+        hoverSound.currentTime = 0;
+        currentlyPlaying = null;
+      }
+    });
   });
-});
+</script>
+
 
 class PP extends React.Component {
     render() {
@@ -40,10 +57,10 @@ class Medsos extends React.Component {
     render() {
         return (
             <div class="tombol">
-                <a target="_blank" href="https://id.linkedin.com/in/faisal-amiruddin-4965292ba"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a target="_blank" href="https://github.com/Yokaimi"><i class="fab fa-github"></i> Github</a>
-                <a target="_blank" href="https://www.instagram.com/faisalamiruddin_"><i class="fab fa-instagram"></i> Instagram</a>
-                <a target="_blank" href="https://tiktok.com/@lothic_"><i class="fab fa-tiktok"></i> Tiktok</a>
+                <a class="hover-item" target="_blank" href="https://id.linkedin.com/in/faisal-amiruddin-4965292ba"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a class="hover-item"  target="_blank" href="https://github.com/Yokaimi"><i class="fab fa-github"></i> Github</a>
+                <a class="hover-item"  target="_blank" href="https://www.instagram.com/faisalamiruddin_"><i class="fab fa-instagram"></i> Instagram</a>
+                <a class="hover-item"  target="_blank" href="https://tiktok.com/@lothic_"><i class="fab fa-tiktok"></i> Tiktok</a>
             </div>
         );
     }
