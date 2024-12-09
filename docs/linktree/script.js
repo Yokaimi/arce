@@ -99,6 +99,7 @@ const MobileNotification = () => {
           <a className="hover-item" target="_blank" href="https://github.com/faisal-amiruddin/"><i className="fab fa-github"></i> Github</a>
           <a className="hover-item" target="_blank" href="https://www.instagram.com/faisalamiruddin_"><i className="fab fa-instagram"></i> Instagram</a>
           <a className="hover-item" target="_blank" href="https://tiktok.com/@lothic_"><i className="fab fa-tiktok"></i> Tiktok</a>
+          <a className="hover-item" target="_blank" href="https://faisal-amiruddin.github.io/portofolio/"><i"></i>Portofolio</a>
         </div>
       );
     }
