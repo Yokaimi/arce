@@ -1,10 +1,27 @@
+*, html {
+    /* padding: 0; */
+    margin: 0;
+}
+
+.utama {
+    background-color: rgb(213, 213, 213);
+}
+
+.apa {
+    height: 0.5vh;
+}
+
 .container {
-    background-color: #d4d4d4;
-    color: white;
-    width: 100%; 
-    height: 100vh;
+    margin: 20px 20px 20px 20px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    width: 97,5%; 
+    height: 94vh;
     display: flex;
     font-family: 'Trebuchet MS';
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .kiri {
@@ -24,10 +41,6 @@
     overflow: hidden;
 }
 
-*, html {
-    /* padding: 0; */
-    margin: 0;
-}
 
 h1 {
     font-weight: bold;
@@ -72,12 +85,13 @@ h1 {
 
 .button-contact {
     border: solid 2px black;
-    background-color: #d4d4d4; 
+    background-color: white; 
     padding: 10px 20px; 
     width: fit-content; 
     margin-top: 30px;
     margin-left: 5px;
     text-align: center;
+    text-decoration: none;
     cursor: pointer; 
     transition: ease-in-out 0.3s;
 }
@@ -94,10 +108,178 @@ h1 {
     filter: drop-shadow(1px 1px 10px rgb(44, 43, 43));
 }
 
+.form-container {
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+    color: black;
+    height: 90vh;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.input-form {
+    border-radius: 5px;
+    width: 1000px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.input-form-2 {
+    border-radius: 5px;
+    width: 500px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.form-kiri, .form-kanan {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-2 {
+    display: flex;
+    gap: 10px;
+}
+.anu {
+    margin-left: 1px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px; 
+    resize: vertical; 
+    overflow: auto;
+    font-family: inherit; 
+    font-size: 16px;
+    padding-top: 7px;
+}
+
+.width-text {
+    width: 1024px;
+    height: 150px;
+}
+
+.submit-form {
+    margin-top: 20px;
+    background-color: white;
+    padding: 15px 100px 15px 100px;
+    font-size: 20px;
+    /* font-weight: bold; */
+    transition: ease-in-out 0.3s;
+}
+
+.btn-form {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.submit-form:hover {
+    color: white;
+    background-color: black;
+    transition: ease-in-out 0.3s;
+}
+
 @media screen and (max-width: 1144px) {
     .container {
         flex-direction: column-reverse; 
         height: auto;
+    }
+
+    .form-container {
+        background-color: red;
+        border-radius: 20px;
+        margin: 20px;
+        color: black;
+        height: 90vh;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center;  */
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 1000px;
+    }
+    
+    .input-form {
+        border-radius: 5px;
+        width: 100px;
+        height: 40px;
+        padding-left: 10px;
+    }
+    
+    .input-form-2 {
+        border-radius: 5px;
+        width: 500px;
+        height: 40px;
+        padding-left: 10px;
+    }
+    
+    .form-kiri, .form-kanan {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .anu {
+        margin-left: 1px;
+    }
+    
+    textarea {
+        width: 100%;
+        height: 100px; 
+        resize: vertical; 
+        overflow: auto;
+        font-family: inherit; 
+        font-size: 16px;
+        padding-top: 7px;
+    }
+    
+    .width-text {
+        width: 324px;
+        height: 150px;
+    }
+    
+    .submit-form {
+        margin-top: 20px;
+        background-color: white;
+        padding: 15px 100px 15px 100px;
+        font-size: 20px;
+        /* font-weight: bold; */
+        transition: ease-in-out 0.3s;
+    }
+    
+    .btn-form {
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+    }
+    
+    .submit-form:hover {
+        color: white;
+        background-color: black;
+        transition: ease-in-out 0.3s;
     }
 
     .kiri, .kanan {
@@ -132,6 +314,10 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
+
+    .form-container {
+        background-color: blue;
+    }
     .w-text-content {
         font-size: 2.5em; 
     }
