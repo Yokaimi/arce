@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/1751867a30.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -26,35 +27,100 @@
                 <img class="ame" src="pp.png" alt="">
             </div>
         </div>
+        <div class="penghubung-1"></div>
+
+
+        
+        
+        
+        <div class="myskill-container">
+            <div>
+                <h2 class="w-text-content h2-skill">My Skills</h2>
+                <div style="justify-self: center; position: relative; top: -200px; width: 300px; height: 4px; background-color: black;"></div>
+            </div>
+
+            <div class="bahasa-pemrog">
+                <div class="box">
+                    <span style="--i:1; width: 100px;"><img src="html.png" alt=""></span>
+                    <span style="--i:2;"><img src="css.png" alt=""></span>
+                    <span style="--i:3;"><img src="js.png" alt=""></span>
+                    <span style="--i:4;"><img src="java.png" alt=""></span>
+                    <span style="--i:5;"><img src="sql (1).png" alt=""></span>
+                </div>
+                <!-- <img id="html" src="html.png" alt="HTML"> -->
+                <!-- <img id="css" src="css.png" alt="CSS"> -->
+                <!-- <img id="js" src="js.png" alt="Javascript"> -->
+                <!-- <img id="java" src="java.png" alt="Java"> -->
+                <!-- <img id="sql" src="sql.png" alt="MySQL"> -->
+            </div>
+        </div>
+
+        <div class="penghubung-2"></div>
         <div>
             <div class="form-container">
                 <h2 class="w-text-content">Contact Me</h2>
                 <br>
-                <form action="POST" class="form" id="frm">
-                    <div class="form-2">
-                        <div class="form-kiri">
-                            <label class="lexend-deca-oke anu" for="nama">Nama:</label>
-                            <input class="input-form-2" type="text" placeholder="Fufufafa">
+                <div class="contact-utama">
+                    <div class="contact-kiri">
+                        <div class="lexend-deca-oke">
+                            Information about my contact:
                         </div>
-                        <div class="form-kanan">
-                            <label class="lexend-deca-oke anu" for="email">Email:</label>
-                            <input class="input-form-2" type="email" placeholder="example@gmail.com">
+                        <br>
+                        <br>
+                        <div class="name-anu">
+                            <i class="fa fa-user"></i>
+                            <div>
+                                <div class="me-name lexend-deca-oke">Name</div>
+                                <div class="me-name-value lexend-deca-oke">⤷ Faisal Amiruddin</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="address-anu">
+                            <i class="fa fa-map-marker"></i>
+                            <div>
+                                <div class="me-address lexend-deca-oke">Address</div>
+                                <div class="me-address-value lexend-deca-oke">⤷ Javanese</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="email-anu">
+                            <i class="fa fa-envelope"></i>
+                            <div>
+                                <div class="me-email lexend-deca-oke">Email</div>
+                                <div class="me-email-value lexend-deca-oke">⤷ faisalamrdn@gmail.com</div>
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <label class="lexend-deca-oke anu" for="pesan">Messages:</label>
-                    <textarea class="input-form width-text"></textarea>
-                    <br>
-                    <div class="btn-form">
-                        <input class="lexend-deca-oke submit-form" type="submit" value="Send">
-                        <input class="lexend-deca-oke submit-form" type="reset" value="Reset">
+                    <div class="contact-kanan">
+                        <form class="form" id="frm">
+                            <div class="form-2">
+                                <div class="form-kiri">
+                                    <label class="lexend-deca-oke anu" for="nama">Name:</label>
+                                    <input class="input-form-2" type="text" placeholder="Fufufafa">
+                                </div>
+                                <div class="form-kanan">
+                                    <label class="lexend-deca-oke anu" for="email">Email:</label>
+                                    <input class="input-form-2" type="email" placeholder="example@gmail.com">
+                                </div>
+                            </div>
+                            <br>
+                            <label class="lexend-deca-oke anu" for="subject">Subject:</label>
+                            <input class="input-form" type="text" placeholder="I Want You...">
+                            <br>
+                            <label class="lexend-deca-oke anu" for="pesan">Messages:</label>
+                            <textarea class="input-form width-text"></textarea>
+                            <br>
+                            <div class="btn-form">
+                                <button class="lexend-deca-oke submit-form" onclick="showAlert()">Send</button>
+                                <input class="lexend-deca-oke submit-form" type="reset" value="Reset">
+                            </div>
+                        </form>
                     </div>
-
-                </form>
+                </div>
             </div>
         </div>
         <div class="apa"></div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
