@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Faisal Amiruddin</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,23 +11,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="kiri">
-            <!-- <img class="pp" src="https://i.pinimg.com/564x/7f/df/d2/7fdfd22d3d4267673cbb82ae7ef8e992.jpg" alt="me"> -->
-            <div class="text-home">
-                <h1 class="w-text-content">Hello, I'm Faisal!</h1>
-                <p class="lexend-deca-oke">Informatics Engineering Student at Universitas Sebelas Maret --</p>
-                <button class="button-contact lexend-deca-oke">Contact Me</button>
+    <div class="utama">
+        <div class="apa"></div>
+        <div class="container">
+            <div class="kiri">
+                <!-- <img class="pp" src="https://i.pinimg.com/564x/7f/df/d2/7fdfd22d3d4267673cbb82ae7ef8e992.jpg" alt="me"> -->
+                <div class="text-home">
+                    <h1 class="w-text-content">Hello, I'm Faisal!</h1>
+                    <p class="lexend-deca-oke">Informatics Engineering Student at Universitas Sebelas Maret --</p>
+                    <a class="button-contact lexend-deca-oke" href="#frm" style="transition: all 0.3s ease-in-out;">Contact Me</a>
+                </div>
+            </div>
+            <div class="kanan">
+                <img class="ame" src="pp.png" alt="">
             </div>
         </div>
-        <div class="kanan">
-            <img class="ame" src="p.png" alt="">
-        </div>
-    </div>
-    <div>
         <div>
-            <h2>halo</h2>
+            <div class="form-container">
+                <h2 class="w-text-content">Contact Me</h2>
+                <br>
+                <form action="POST" class="form" id="frm">
+                    <div class="form-2">
+                        <div class="form-kiri">
+                            <label class="lexend-deca-oke anu" for="nama">Nama:</label>
+                            <input class="input-form-2" type="text" placeholder="Fufufafa">
+                        </div>
+                        <div class="form-kanan">
+                            <label class="lexend-deca-oke anu" for="email">Email:</label>
+                            <input class="input-form-2" type="email" placeholder="example@gmail.com">
+                        </div>
+                    </div>
+                    <br>
+                    <label class="lexend-deca-oke anu" for="pesan">Messages:</label>
+                    <textarea class="input-form width-text"></textarea>
+                    <br>
+                    <div class="btn-form">
+                        <input class="lexend-deca-oke submit-form" type="submit" value="Send">
+                        <input class="lexend-deca-oke submit-form" type="reset" value="Reset">
+                    </div>
+
+                </form>
+            </div>
         </div>
+        <div class="apa"></div>
     </div>
+
 </body>
 </html>
