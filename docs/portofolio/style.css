@@ -29,7 +29,7 @@
     width: 50%; 
     height: 100vh;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-align: center;
 }
 
@@ -123,6 +123,7 @@ h1 {
 }
 
 .form {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -130,14 +131,15 @@ h1 {
 
 .input-form {
     border-radius: 5px;
-    width: 1000px;
+    width: 430px;
     height: 40px;
     padding-left: 10px;
+    padding-right: 100px;
 }
 
 .input-form-2 {
     border-radius: 5px;
-    width: 500px;
+    width: 250px;
     height: 40px;
     padding-left: 10px;
 }
@@ -151,30 +153,30 @@ h1 {
     display: flex;
     gap: 10px;
 }
+
 .anu {
     margin-left: 1px;
 }
 
 textarea {
-    width: 100%;
-    height: 100px; 
-    resize: vertical; 
-    overflow: auto;
-    font-family: inherit; 
+    /* width: 1px; */
+    /* height: 100px;  */
     font-size: 16px;
     padding-top: 7px;
 }
 
 .width-text {
-    width: 1024px;
-    height: 150px;
+    width: 430px;
+    height: 100px;
 }
 
 .submit-form {
+    margin-left: 40px;
     margin-top: 20px;
-    background-color: white;
-    padding: 15px 100px 15px 100px;
-    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding: 15px 70px 15px 70px;
+    font-size: 15px;
     /* font-weight: bold; */
     transition: ease-in-out 0.3s;
 }
@@ -182,13 +184,158 @@ textarea {
 .btn-form {
     display: flex;
     gap: 50px;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .submit-form:hover {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     transition: ease-in-out 0.3s;
+}
+
+.penghubung-1 {
+    margin-top: -40px;
+    background-color: white;
+    justify-self: center;
+    width: 20px;
+    height: 50px;
+}
+
+.penghubung-2 {
+    margin-bottom: -40px;
+    background-color: white;
+    justify-self: center;
+    width: 20px;
+    height: 50px;
+}
+
+.myskill-container {
+    background-color: white;
+    text-align: center;
+    height: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+.bahasa-pemrog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#html, #css, #js, #java, #sql {
+    width: 10%;
+    height: 10%;
+}
+
+
+.h2-skill {
+    margin-bottom: 150px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    font-size: 50px;
+}
+
+.contact-utama {
+    display: flex;
+}
+
+.contact-kiri {
+    width: 40%; 
+    margin-left: 10px;
+    margin-top: 80px;
+    /* height: 100vh; */
+    box-sizing: border-box;
+    overflow: hidden;
+    /* background-color: blue; */
+    /* text-align: center; */
+}
+
+.contact-kanan {
+    /* background-color: red; */
+    margin-left: 200px;
+    width: 60%; 
+    /* height: 100vh; */
+    /* box-sizing: border-box; */
+    /* overflow: hidden; */
+    
+    /* text-align: center; */
+}
+
+i {
+    font-size: 30px;
+}
+
+.name-anu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.me-name {
+    font-weight: bold;
+}
+
+.address-anu {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.me-address {
+    font-weight: bold;
+}
+
+.email-anu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.me-email {
+    font-weight: bold;
+}
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+}
+
+.box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i)* 45deg)) translateZ(400px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
+}
+
+.box span img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
 }
 
 @media screen and (max-width: 1144px) {
@@ -290,16 +437,20 @@ textarea {
     
     .kiri {
         margin-top: -250px;
+        margin-bottom: -200px;
     }
+    
     .w-text-content {
         font-size: 3em;
     }
 
     .ame {
-        
-        width: 70%;
-        margin-right: 0 auto; 
-        margin-left: 45px;
+        filter: none;
+        margin-top: 50px;
+        border: solid 2px black;
+        border-radius: 100%;
+        width: 40%;
+        margin-right: 0; 
     }
 
     .text-home {
@@ -310,6 +461,14 @@ textarea {
 
     .button-contact {
         margin: 20px auto; 
+    }
+
+    .myskill-container {
+        padding-top: 20px;
+    }
+
+    .box span {
+        transform: rotateY(calc(var(--i)* 45deg)) translateZ(350px);
     }
 }
 
@@ -327,7 +486,7 @@ textarea {
     }
 
     .ame {
-        width: 80%; 
+        width: 40%;
     }
 
     .text-home {
@@ -337,5 +496,13 @@ textarea {
     .button-contact {
         padding: 8px 15px; 
         font-size: 0.9em; 
+    }
+
+    .myskill-container {
+        padding: 20px;
+    }
+
+    .box span {
+        transform: rotateY(calc(var(--i)* 45deg)) translateZ(250px);
     }
 }
