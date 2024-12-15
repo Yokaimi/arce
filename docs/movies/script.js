@@ -22,17 +22,39 @@ function showMovies(movies) {
         const cardEl = document.createElement("div")
         cardEl.classList.add("movieCard")
         cardEl.innerHTML = `
-        <h3>${title}</h3>
+        <h3>${title.substring(0, 50)}</h3>
         <br>
         <img src="${ API_IMAGE_URL + poster_path }" />
+        <p class="date">Release Date: ${release_date}</p>
+        <br>
         <div class="detail" >
-            <p class="date">${release_date}</p>
-            <br>
-            <p>${overview.substring(0, 90)}.....</p>
+            <button class="btn-overview" onclick="showOverview('${title.replace(/'/g, "\\'")}', '${overview.replace(/'/g, "\\'")}')">Overview</button>
         </div>
         `
+        
         moviesElement.appendChild(cardEl)
     });
+}
+
+function showOverview(title, overview) {
+    const modal = document.getElementById("modal");
+    const modalText = document.getElementById("modal-text");
+    modalText.innerHTML = `
+        <h3>${title}</h3>
+        <p>${overview}</p>
+    `;
+    modal.style.display = "block";
+}
+
+document.getElementsByClassName("close")[0].onclick = function() {
+    document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("modal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 searchForm.addEventListener("submit", (event) => {
