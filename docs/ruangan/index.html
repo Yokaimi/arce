@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruangan D3TI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .alert {
+            background-color: white;
+            border: 8px;
+            box-shadow: 0 2px 4px rgb(255, 99, 71);
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: black;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .room-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .time-slots {
+            list-style: none;
+        }
+
+        .time-slot {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #4b5563;
+            font-size: 0.9rem;
+        }
+
+        .time-slot:last-child {
+            border-bottom: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .navigation {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .navigation a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <a href="admin.html">Dashboard Admin →</a>
+        </div>
+        
+        <div class="card">
+            <h1 class="card-title">Pencarian Ruangan D3TI yang Tersedia</h1>
+            <div class="search-container">
+                <select id="daySelect">
+                    <option value="">Pilih Hari</option>
+                    <option value="Senin">Senin</option>
+                    <option value="Selasa">Selasa</option>
+                    <option value="Rabu">Rabu</option>
+                    <option value="Kamis">Kamis</option>
+                    <option value="Jumat">Jumat</option>
+                </select>
+                <button id="searchButton" disabled>Cari Ruangan</button>
+            </div>
+        </div>
+
+        <div id="emptyScheduleAlerts">
+
+        </div>
+
+        <div id="results">
+
+        </div>
+    </div>
+
+    <script>
+        const ROOM_SCHEDULES = {
+            'Lab. RPL': {
+                'Senin': [{ start: '07:30', end: '17:00' }],
+                'Selasa': [{ start: '07:30', end: '13:50' }],
+                'Rabu': [{ start: '08:25', end: '17:00' }],
+                'Kamis': [
+                    { start: '07:30', end: '10:10' },
+                    { start: '13:00', end: '17:00' }
+                ],
+                'Jumat': [{ start: '07:30', end: '13:50' }]
+            },
+            'Lab. Pemrograman': {
+                'Senin': [{ start: '07:30', end: '17:00' }],
+                'Selasa': [{ start: '07:30', end: '17:00' }],
+                'Rabu': [{ start: '07:30', end: '17:00' }],
+                'Kamis': [{ start: '07:30', end: '17:00' }],
+                'Jumat': [{ start: '07:30', end: '17:00' }]
+            },
+            'TEFA': {
+                'Senin': [{ start: '07:30', end: '17:00' }],
+                'Selasa': [{ start: '07:30', end: '17:00' }],
+                'Rabu': [{ start: '13:55', end: '17:00' }],
+                'Kamis': [
+                    { start: '07:30', end: '11:00' },
+                    { start: '13:00', end: '17:00' }
+                ],
+                'Jumat': [{ start: '13:55', end: '17:00' }]
+            },
+            'Lab. Jaringan & IoT': {
+                'Senin': [{ start: '07:30', end: '17:00' }],
+                'Selasa': [
+                    { start: '07:30', end: '10:10' },
+                    { start: '13:00', end: '17:00' }
+                ],
+                'Rabu': [
+                    { start: '07:30', end: '09:15' },
+                    { start: '13:55', end: '17:00' }
+                ],
+                'Kamis': [{ start: '07:30', end: '13:50' }],
+                'Jumat': [{ start: '07:30', end: '17:00' }]
+            },
+            'Lab. Multimedia': {
+                'Senin': [{ start: '07:30', end: '17:00' }],
+                'Selasa': [{ start: '07:30', end: '17:00' }],
+                'Rabu': [
+                    { start: '07:30', end: '09:15' },
+                    { start: '13:55', end: '17:00' }
+                ],
+                'Kamis': [{ start: '07:30', end: '17:00' }],
+                'Jumat': [{ start: '07:30', end: '17:00' }]
+            }
+        };
+
+        const timeToMinutes = (timeStr) => {
+            const [hours, minutes] = timeStr.split(':').map(Number);
+            return hours * 60 + minutes;
+        };
+
+        const minutesToTime = (minutes) => {
+            const hours = Math.floor(minutes / 60);
+            const mins = minutes % 60;
+            return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
+        };
+
+        const findAvailableSlots = (schedule, day) => {
+            const slots = [];
+            let currentTime = '07:30';
+            
+            schedule[day].forEach(timeSlot => {
+                if (timeSlot.start > currentTime) {
+                    slots.push({ start: currentTime, end: timeSlot.start });
+                }
+                currentTime = timeSlot.end;
+            });
+
+            if (currentTime < '17:00') {
+                slots.push({ start: currentTime, end: '17:00' });
+            }
+
+            return slots;
+        };
+
+        const getEmptySchedules = () => {
+            const schedules = localStorage.getItem('emptySchedules');
+            return schedules ? JSON.parse(schedules) : [];
+        };
+
+        const displayEmptyScheduleAlerts = (selectedDay) => {
+            const emptySchedules = getEmptySchedules();
+            const alertsContainer = document.getElementById('emptyScheduleAlerts');
+            alertsContainer.innerHTML = '';
+
+            const daySchedules = emptySchedules.filter(schedule => schedule.day === selectedDay);
+            
+            daySchedules.forEach(schedule => {
+                const alert = document.createElement('div');
+                alert.className = 'alert';
+                alert.innerHTML = `
+                    <div>📅</div>
+                    <div><strong>Pemberitahuan:</strong> Ruangan ${schedule.room} kosong pada jam ${schedule.startTime} - ${schedule.endTime}. Karena ${schedule.reason}</div>
+                `;
+                alertsContainer.appendChild(alert);
+            });
+        };
+
+        const daySelect = document.getElementById('daySelect');
+        const searchButton = document.getElementById('searchButton');
+        const results = document.getElementById('results');
+
+        daySelect.addEventListener('change', () => {
+            searchButton.disabled = !daySelect.value;
+        });
+
+        searchButton.addEventListener('click', () => {
+            const selectedDay = daySelect.value;
+            if (!selectedDay) return;
+
+            displayEmptyScheduleAlerts(selectedDay);
+
+            const availableRooms = {};
+            Object.entries(ROOM_SCHEDULES).forEach(([room, schedule]) => {
+                const availableSlots = findAvailableSlots(schedule, selectedDay);
+                if (availableSlots.length > 0) {
+                    availableRooms[room] = availableSlots;
+                }
+            });
+
+            const emptySchedules = getEmptySchedules();
+            const hasEmptySchedulesForDay = emptySchedules.some(schedule => schedule.day === selectedDay);
+
+            // Show results
+            results.innerHTML = '';
+            if (Object.keys(availableRooms).length > 0) {
+                Object.entries(availableRooms).forEach(([room, slots]) => {
+                    const roomCard = document.createElement('div');
+                    roomCard.className = 'room-card';
+                    roomCard.innerHTML = `
+                        <h2 class="room-title">${room}</h2>
+                        <ul class="time-slots">
+                            ${slots.map(slot => `
+                                <li class="time-slot">Ruangan kosong pada pukul: ${slot.start} - ${slot.end}</li>
+                            `).join('')}
+                        </ul>
+                    `;
+                    results.appendChild(roomCard);
+                });
+            } else if (!hasEmptySchedulesForDay) {
+                results.innerHTML = `
+                    <div class="alert">
+                        <div>⚠️</div>
+                        <div>Maaf, semua ruangan telah terpakai pada hari ${selectedDay}. 
+                        Disarankan untuk melakukan pertemuan secara online.</div>
+                    </div>
+                `;
+            }
+        });
+
+    </script>
+</body>
+</html>
