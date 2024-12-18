@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard Admin - Ruang D3TI</title>
+      <style>
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: 'Montserrat', sans-serif;
+         }
+         body {
+         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+         min-height: 100vh;
+         padding: 2rem;
+         color: #e2e8f0;
+         line-height: 1.6;
+         background-attachment: fixed;
+         position: relative;
+         overflow-x: hidden;
+         }
+         body::before {
+         content: '';
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDJ2MkgwVjB6bTQgMGgydjJINFYwem00IDBoMnYySDhWMHptNCAwaDJ2MmgtMlYwek0yIDJoMnYySDJWMnptNCAwaDJ2Mkg2VjJ6bTQgMGgydjJoLTJWMnpNMCA0aDJ2MkgwVjR6bTQgMGgydjJINFY0em00IDBoMnYySDhWNHptNCAwoMnYyaC0yVjR6TTIgNmgydjJIMlY2em00IDBoMnYySDZWNnptNCAwaDJ2MmgtMlY2ek0wIDhoMnYySDBWOHptNCAwaDJ2Mkg0Vjh6bTQgMGgydjJIOFY4em00IDBoMnYyaC0yVjh6TTIgMTBoMnYySDJWMTB6bTQgMGgydjJINlYxMHptNCAwaDJ2MmgtMlYxMHpNMCAxMmgydjJIMFYxMnptNCAwaDJ2Mkg0VjEyem00IDBoMnYySDhWMTJ6bTQgMGgydjJoLTJWMTJ6IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
+         pointer-events: none;
+         opacity: 0.5;
+         }
+         .container {
+         max-width: 1000px;
+         margin: 0 auto;
+         position: relative;
+         }
+         .card {
+         background: rgba(30, 41, 59, 0.8);
+         border-radius: 1rem;
+         padding: 2rem;
+         margin-bottom: 2rem;
+         border: 1px solid rgba(148, 163, 184, 0.1);
+         backdrop-filter: blur(10px);
+         box-shadow: 0 0 20px rgba(56, 189, 248, 0.1),
+         0 0 40px rgba(56, 189, 248, 0.05);
+         position: relative;
+         overflow: hidden;
+         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+         .card::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: linear-gradient(45deg, 
+         rgba(56, 189, 248, 0) 0%,
+         rgba(56, 189, 248, 0.03) 50%,
+         rgba(56, 189, 248, 0) 100%);
+         transform: translateX(-100%);
+         transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+         .card:hover::before {
+         transform: translateX(100%);
+         }
+         .card:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 0 30px rgba(56, 189, 248, 0.15),
+         0 0 60px rgba(56, 189, 248, 0.1);
+         }
+         .card-title {
+         font-size: 1.75rem;
+         font-weight: 600;
+         margin-bottom: 2rem;
+         color: #f8fafc;
+         text-transform: uppercase;
+         letter-spacing: 0.05em;
+         border-bottom: 2px solid rgba(148, 163, 184, 0.2);
+         padding-bottom: 1rem;
+         position: relative;
+         }
+         .card-title::after {
+         content: '';
+         position: absolute;
+         bottom: -2px;
+         left: 0;
+         width: 50px;
+         height: 2px;
+         background: linear-gradient(90deg, #38bdf8, transparent);
+         }
+         .form-group {
+         margin-bottom: 1.5rem;
+         position: relative;
+         }
+         label {
+         display: block;
+         margin-bottom: 0.75rem;
+         color: #94a3b8;
+         font-weight: 500;
+         font-size: 0.9rem;
+         text-transform: uppercase;
+         letter-spacing: 0.05em;
+         }
+         select, input, textarea {
+         width: 100%;
+         padding: 1rem 1.25rem;
+         background: rgba(15, 23, 42, 0.6);
+         border: 1px solid rgba(148, 163, 184, 0.2);
+         border-radius: 0.5rem;
+         color: #f8fafc;
+         font-size: 0.95rem;
+         transition: all 0.3s ease;
+         backdrop-filter: blur(5px);
+         }
+         select:hover, input:hover, textarea:hover {
+         border-color: rgba(56, 189, 248, 0.4);
+         }
+         select:focus, input:focus, textarea:focus {
+         outline: none;
+         border-color: #38bdf8;
+         box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+         background: rgba(15, 23, 42, 0.8);
+         }
+         select {
+         appearance: none;
+         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+         background-repeat: no-repeat;
+         background-position: right 1rem center;
+         background-size: 1.25rem;
+         padding-right: 2.5rem;
+         }
+         textarea {
+         min-height: 120px;
+         resize: vertical;
+         }
+         button {
+         padding: 0.875rem 1.75rem;
+         border: none;
+         border-radius: 0.5rem;
+         cursor: pointer;
+         font-size: 0.95rem;
+         font-weight: 600;
+         letter-spacing: 0.025em;
+         text-transform: uppercase;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         position: relative;
+         overflow: hidden;
+         }
+         button[type="submit"] {
+         background: linear-gradient(45deg, #0ea5e9, #38bdf8);
+         color: white;
+         width: 100%;
+         box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+         }
+         button[type="submit"]:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+         }
+         .btn-danger {
+         background: linear-gradient(45deg, #dc2626, #ef4444);
+         color: white;
+         }
+         .btn-warning {
+         background: linear-gradient(45deg, #d97706, #f59e0b);
+         color: white;
+         }
+         .schedule-list {
+         display: grid;
+         gap: 1.5rem;
+         }
+         .schedule-item {
+         background: rgba(15, 23, 42, 0.6);
+         border: 1px solid rgba(148, 163, 184, 0.2);
+         border-radius: 0.75rem;
+         padding: 1.5rem;
+         transition: all 0.3s ease;
+         position: relative;
+         overflow: hidden;
+         }
+         .schedule-item::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 4px;
+         height: 100%;
+         background: linear-gradient(to bottom, #38bdf8, transparent);
+         }
+         .schedule-item:hover {
+         transform: translateX(5px);
+         background: rgba(15, 23, 42, 0.8);
+         box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+         }
+         .schedule-item p {
+         margin-bottom: 0.75rem;
+         font-size: 0.95rem;
+         color: #94a3b8;
+         }
+         .schedule-item strong {
+         color: #f8fafc;
+         font-weight: 500;
+         }
+         .schedule-actions {
+         margin-top: 1.25rem;
+         display: flex;
+         gap: 1rem;
+         }
+         .schedule-actions button {
+         flex: 1;
+         }
+         .navigation {
+         margin-bottom: 2rem;
+         }
+         .navigation a {
+         color: #38bdf8;
+         text-decoration: none;
+         font-weight: 500;
+         font-size: 0.95rem;
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+         padding: 0.75rem 1rem;
+         border-radius: 0.5rem;
+         transition: all 0.3s ease;
+         background: rgba(56, 189, 248, 0.1);
+         border: 1px solid rgba(56, 189, 248, 0.2);
+         }
+         .navigation a:hover {
+         background: rgba(56, 189, 248, 0.15);
+         transform: translateX(-5px);
+         }
+
+         @keyframes glow {
+         0% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
+         50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.5); }
+         100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
+         }
+         button[type="submit"] {
+         animation: glow 2s infinite;
+         }
+
+         @media (max-width: 768px) {
+         body {
+         padding: 1rem;
+         }
+         .card {
+         padding: 1.5rem;
+         }
+         .schedule-actions {
+         flex-direction: column;
+         }
+         .schedule-actions button {
+         width: 100%;
+         }
+         }
+         /* Custom Scrollbar */
+         ::-webkit-scrollbar {
+         width: 8px;
+         }
+         ::-webkit-scrollbar-track {
+         background: rgba(15, 23, 42, 0.6);
+         }
+         ::-webkit-scrollbar-thumb {
+         background: rgba(56, 189, 248, 0.3);
+         border-radius: 4px;
+         }
+         ::-webkit-scrollbar-thumb:hover {
+         background: rgba(56, 189, 248, 0.5);
+         }
+         #loginModal {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.7);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: 1000;
+         }
+         #modalContent {
+         color: black;
+         background: white;
+         padding: 20px;
+         border-radius: 10px;
+         width: 300px;
+         text-align: center;
+         animation: fadeIn 0.5s ease;
+         }
+         @keyframes fadeIn {
+         from {
+         opacity: 0;
+         transform: translateY(-20px);
+         }
+         to {
+         opacity: 1;
+         transform: translateY(0);
+         }
+         }
+         .modal-input {
+         width: 90%;
+         padding: 10px;
+         margin: 10px 0;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         }
+         .modal-input::placeholder {
+         color: rgba(255, 255, 255, 0.614);
+         opacity: 1;  
+         }
+         .modal-button {
+         padding: 10px 20px;
+         background-color: #007bff;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         }
+         .modal-button:hover {
+         background-color: #0056b3;
+         }
+         #content {
+         display: none;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="loginModal">
+         <div id="modalContent">
+            <h2>Silahkan Login Terlebih Dahulu!</h2>
+            <input type="text" id="username" class="modal-input" placeholder="Username" required>
+            <input type="password" id="password" class="modal-input" placeholder="Password" required>
+            <button id="loginButton" class="modal-button">Login</button>
+         </div>
+      </div>
+      <div class="container">
+         <div class="navigation">
+            <a href="index.html">← Kembali ke Pencarian Ruangan</a>
+         </div>
+         <div class="card">
+            <h1 class="card-title">Dashboard Admin - Input Jadwal Kosong</h1>
+            <form id="scheduleForm">
+               <div class="form-group">
+                  <label for="room">Ruangan:</label>
+                  <select id="room" required>
+                     <option value="">Pilih Ruangan</option>
+                     <option value="Lab. RPL">Lab. RPL</option>
+                     <option value="Lab. Pemrograman">Lab. Pemrograman</option>
+                     <option value="TEFA">TEFA</option>
+                     <option value="Lab. Jaringan & IoT">Lab. Jaringan & IoT</option>
+                     <option value="Lab. Multimedia">Lab. Multimedia</option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label for="day">Hari:</label>
+                  <select id="day" required>
+                     <option value="">Pilih Hari</option>
+                     <option value="Senin">Senin</option>
+                     <option value="Selasa">Selasa</option>
+                     <option value="Rabu">Rabu</option>
+                     <option value="Kamis">Kamis</option>
+                     <option value="Jumat">Jumat</option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label for="startTime">Jam Mulai:</label>
+                  <input type="time" id="startTime" required min="07:30" max="17:00">
+               </div>
+               <div class="form-group">
+                  <label for="endTime">Jam Selesai:</label>
+                  <input type="time" id="endTime" required min="07:30" max="17:00">
+               </div>
+               <div class="form-group">
+                  <label for="reason">Alasan:</label>
+                  <textarea id="reason" required placeholder="Masukkan alasan ketidakhadiran..."></textarea>
+               </div>
+               <button type="submit">Simpan Jadwal</button>
+            </form>
+         </div>
+         <div class="card">
+            <h2 class="card-title">Daftar Jadwal Kosong</h2>
+            <div id="scheduleList" class="schedule-list">
+
+            </div>
+         </div>
+      </div>
+      <script>
+         const getSchedules = () => {
+             const schedules = localStorage.getItem('emptySchedules');
+             return schedules ? JSON.parse(schedules) : [];
+         };
+         
+         const saveSchedules = (schedules) => {
+             localStorage.setItem('emptySchedules', JSON.stringify(schedules));
+         };
+
+         const displaySchedules = () => {
+             const scheduleList = document.getElementById('scheduleList');
+             const schedules = getSchedules();
+             
+             if (schedules.length === 0) {
+                 scheduleList.innerHTML = '<p>Tidak ada jadwal kosong yang tersimpan.</p>';
+                 return;
+             }
+             
+             scheduleList.innerHTML = schedules.map((schedule, index) => `
+                 <div class="schedule-item">
+                     <p><strong>Ruangan:</strong> ${schedule.room}</p>
+                     <p><strong>Hari:</strong> ${schedule.day}</p>
+                     <p><strong>Waktu:</strong> ${schedule.startTime} - ${schedule.endTime}</p>
+                     <p><strong>Alasan:</strong> ${schedule.reason}</p>
+                     <div class="schedule-actions">
+                         <button onclick="editSchedule(${index})" class="btn-warning">Edit</button>
+                         <button onclick="deleteSchedule(${index})" class="btn-danger">Hapus</button>
+                     </div>
+                 </div>
+             `).join('');
+         };
+         
+         const addSchedule = (schedule) => {
+             const schedules = getSchedules();
+             schedules.push(schedule);
+             saveSchedules(schedules);
+             displaySchedules();
+         };
+         
+         const deleteSchedule = (index) => {
+             if (confirm('Apakah Anda yakin ingin menghapus jadwal ini?')) {
+                 const schedules = getSchedules();
+                 schedules.splice(index, 1);
+                 saveSchedules(schedules);
+                 displaySchedules();
+             }
+         };
+
+         const editSchedule = (index) => {
+             const schedules = getSchedules();
+             const schedule = schedules[index];
+             
+             document.getElementById('room').value = schedule.room;
+             document.getElementById('day').value = schedule.day;
+             document.getElementById('startTime').value = schedule.startTime;
+             document.getElementById('endTime').value = schedule.endTime;
+             document.getElementById('reason').value = schedule.reason;
+
+             schedules.splice(index, 1);
+             saveSchedules(schedules);
+             displaySchedules();
+         };
+
+         document.getElementById('scheduleForm').addEventListener('submit', (e) => {
+             e.preventDefault();
+             
+             const schedule = {
+                 room: document.getElementById('room').value,
+                 day: document.getElementById('day').value,
+                 startTime: document.getElementById('startTime').value,
+                 endTime: document.getElementById('endTime').value,
+                 reason: document.getElementById('reason').value
+             };
+             
+             addSchedule(schedule);
+             e.target.reset();
+         });
+         
+         document.getElementById("loginButton").addEventListener("click", function () {
+             const username = document.getElementById("username").value;
+             const password = document.getElementById("password").value;
+         
+             if (username === "Admin" && password === "Admin#1234") {
+                 document.getElementById("loginModal").style.display = "none"; 
+                 document.getElementById("content").style.display = "block"; 
+             } else {
+                 alert("Username atau Password salah!");
+             }
+         });
+
+         displaySchedules();
+      </script>
+   </body>
+</html>
