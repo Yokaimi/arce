@@ -323,6 +323,10 @@
                   <input type="time" id="endTime" required min="07:30" max="17:00">
                </div>
                <div class="form-group">
+                  <label for"status">Status:</label>
+                  <input type="text" class="modal-input" id="status" required placeholder="Status udah dipake atau belum">
+               </div>
+               <div class="form-group">
                   <label for="reason">Alasan:</label>
                   <textarea id="reason" required placeholder="Masukkan alasan ketidakhadiran..."></textarea>
                </div>
@@ -360,6 +364,7 @@
                      <p><strong>Ruangan:</strong> ${schedule.room}</p>
                      <p><strong>Hari:</strong> ${schedule.day}</p>
                      <p><strong>Waktu:</strong> ${schedule.startTime} - ${schedule.endTime}</p>
+                     <p><strong>Status:</strong> ${schedule.status}</p>
                      <p><strong>Alasan:</strong> ${schedule.reason}</p>
                      <div class="schedule-actions">
                          <button onclick="editSchedule(${index})" class="btn-warning">Edit</button>
@@ -393,6 +398,7 @@
              document.getElementById('day').value = schedule.day;
              document.getElementById('startTime').value = schedule.startTime;
              document.getElementById('endTime').value = schedule.endTime;
+             document.getElementById('status').value = schedule.status;
              document.getElementById('reason').value = schedule.reason;
 
              schedules.splice(index, 1);
@@ -408,6 +414,7 @@
                  day: document.getElementById('day').value,
                  startTime: document.getElementById('startTime').value,
                  endTime: document.getElementById('endTime').value,
+                 status: document.getElementById('status').value,
                  reason: document.getElementById('reason').value
              };
              
