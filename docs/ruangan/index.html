@@ -262,7 +262,7 @@
                 alert.className = 'alert';
                 alert.innerHTML = `
                     <div>📅</div>
-                    <div><strong>Pemberitahuan:</strong> Ruangan ${schedule.room} kosong pada jam ${schedule.startTime} - ${schedule.endTime}. Karena ${schedule.reason}<br>Status: ${schedule.status}</div>
+                    <div><strong>Pemberitahuan:</strong> Ruangan ${schedule.room} kosong pada jam ${schedule.startTime} - ${schedule.endTime}. Karena ${schedule.reason}<br><strong>Status:</strong> ${schedule.status}</div>
                 `;
                 alertsContainer.appendChild(alert);
             });
