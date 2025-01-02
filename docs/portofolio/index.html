@@ -18,61 +18,64 @@
             <div class="kiri">
                 <!-- <img class="pp" src="https://i.pinimg.com/564x/7f/df/d2/7fdfd22d3d4267673cbb82ae7ef8e992.jpg" alt="me"> -->
                 <div class="text-home">
-                    <h1 class="w-text-content">Hello, I'm Faisal!</h1>
-                    <p class="lexend-deca-oke">Informatics Engineering Student at Universitas Sebelas Maret --</p>
-                    <a class="button-contact lexend-deca-oke" href="#frm" style="transition: all 0.3s ease-in-out;">Contact Me</a>
+                    <h1 class="w-text-content fade-in-left">Hello, I'm Faisal!</h1>
+                    <p class="lexend-deca-oke fade-in-left">Informatics Engineering Student at Universitas Sebelas Maret --</p>
+                    <a class="button-contact lexend-deca-oke fade-in-bottom" href="#frm" style="transition: all 0.5s ease-in-out;">Contact Me</a>
                 </div>
             </div>
             <div class="kanan">
-                <img class="ame" src="pp.png" alt="">
+                <img class="fade-in-right ame" src="pp.png" alt="">
             </div>
         </div>
         
         <div class="myskill-container">
-            <div>
-                <h2 class="w-text-content h2-skill">My Skills</h2>
+            <div class="select-menu">
+                <!-- <h2 class="w-text-content h2-skill fade-in-bottom">Tech Stack</h2> -->
+                <button id="projects" class="slc-btn lexend-deca-oke fade-in-left">Projects</button>
+                <button id="tech" class="slc-btn default-slc lexend-deca-oke fade-in-bottom">Tech Stack</button>
+                <button id="certif" class="slc-btn lexend-deca-oke fade-in-right">Certificates</button>
             </div>
 
-            <div class="bahasa-pemrog">
-                <div class="slider" reverse="true" style="
-                    --width: 200px;
-                    --height: 200px;
-                    --quantity: 9;
-                ">
-                    <div class="list">
-                        <div class="item" style="--position: 1"><img src="html.png" alt=""></div>
-                        <div class="item" style="--position: 2"><img src="sql (1).png" alt=""></div>
-                        <div class="item" style="--position: 3"><img src="css.png" alt=""></div>
-                        <div class="item" style="--position: 4"><img src="js.png" alt=""></div>
-                        <div class="item" style="--position: 5"><img src="java.png" alt=""></div>
-                        <div class="item" style="--position: 6"><img src="html.png" alt=""></div>
-                        <div class="item" style="--position: 7"><img src="sql (1).png" alt=""></div>
-                        <div class="item" style="--position: 8"><img src="css.png" alt=""></div>
-                        <div class="item" style="--position: 9"><img src="js.png" alt=""></div>
-                        <div class="item" style="--position: 10"><img src="java.png" alt=""></div>
+            <div id="container-ops" class="container-opsi">
+                <div id="ctrl-projects" class="opsi-projects fade-in-bottom">
+                    <h1 class="lexend-deca-oke">SOON, LAGI MALES</h1>
+                </div>
+
+                <div id="ctrl-tech" class="opsi-tech fade-in-bottom">
+                    <div class="t-card lexend-deca-oke">
+                        <img class="t-img" src="html.png" alt="html">
+                        <h4>HTML</h4>
+                    </div>
+                    <div class="t-card lexend-deca-oke">
+                        <img class="t-img" src="css.png" alt="css">
+                        <h3>CSS</h3>
+                    </div>
+                    <div class="t-card lexend-deca-oke">
+                        <img class="t-img" src="js.png" alt="javascript">
+                        <h3>JavaScript</h3>
+                    </div>
+                    <div class="t-card lexend-deca-oke">
+                        <img class="t-img" src="java.png" alt="java">
+                        <h3>Java</h3>
+                    </div>
+                    <div class="t-card lexend-deca-oke">
+                        <img class="t-img" src="sql (1).png" alt="sql">
+                        <h3>MySQL</h3>
                     </div>
                 </div>
-                <!-- <div class="box">
-                    <span style="--i:1; width: 100px;"><img src="html.png" alt=""></span>
-                    <span style="--i:2;"><img src="css.png" alt=""></span>
-                    <span style="--i:3;"><img src="js.png" alt=""></span>
-                    <span style="--i:4;"><img src="java.png" alt=""></span>
-                    <span style="--i:5;"><img src="sql (1).png" alt=""></span>
-                </div> -->
-                <!-- <img id="html" src="html.png" alt="HTML"> -->
-                <!-- <img id="css" src="css.png" alt="CSS"> -->
-                <!-- <img id="js" src="js.png" alt="Javascript"> -->
-                <!-- <img id="java" src="java.png" alt="Java"> -->
-                <!-- <img id="sql" src="sql.png" alt="MySQL"> -->
+
+                <div id="ctrl-certif" class="opsi-certif fade-in-bottom">
+                    <h1 class="lexend-deca-oke">SOON, LAGI MALES</h1>
+                </div>
             </div>
         </div>
 
         <div>
             <div class="form-container">
-                <h2 class="w-text-content">Contact Me</h2>
+                <h2 class="w-text-content fade-in-bottom">Contact Me</h2>
                 <br>
                 <div class="contact-utama">
-                    <div class="contact-kiri">
+                    <div class="contact-kiri fade-in-left">
                         <div class="lexend-deca-oke">
                             Information about my contact:
                         </div>
@@ -102,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="contact-kanan">
+                    <div class="contact-kanan fade-in-right">
                         <form class="form" id="frm">
                             <div class="form-2">
                                 <div class="form-kiri">
@@ -122,8 +125,8 @@
                             <textarea class="input-form width-text"></textarea>
                             <br>
                             <div class="btn-form">
-                                <button class="lexend-deca-oke submit-form" onclick="showAlert()">Send</button>
-                                <input class="lexend-deca-oke submit-form reset" type="reset" value="Reset">
+                                <button class="lexend-deca-oke submit-form fade-in-bottom" onclick="showAlert()">Send</button>
+                                <input class="lexend-deca-oke submit-form reset fade-in-bottom" type="reset" value="Reset">
                             </div>
                         </form>
                     </div>
