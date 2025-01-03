@@ -615,10 +615,22 @@ i {
 
 .opsi-certif {
     display: none;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding-bottom: 30px;
+    gap: 20px;
+}
+
+.certif-img {
+    border: 5px solid rgba(185, 184, 184, 0.718);
+    border-radius: 7px;
+    width: 30%;
+}
+
+.certif-img:hover {
+    transition: 0.2s ease-in-out;
+    scale: 1.05;
 }
 
 @media screen and (max-width: 768px) {
@@ -688,5 +700,10 @@ i {
 
     .slider .list .item img{
         width: 50%;
+    }
+
+    .select-menu .slc-btn{
+        font-size: 12px;
+        padding: 10px 0;
     }
 }
