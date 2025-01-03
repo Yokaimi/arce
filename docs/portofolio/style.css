@@ -625,7 +625,7 @@ i {
 .certif-img {
     border: 5px solid rgba(185, 184, 184, 0.718);
     border-radius: 7px;
-    width: 30%;
+    width: 50%;
 }
 
 .certif-img:hover {
