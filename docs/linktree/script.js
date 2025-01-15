@@ -95,11 +95,11 @@ const MobileNotification = () => {
     render() {
       return (
         <div className="tombol">
+          <a className="hover-item" target="_blank" href="https://faisal-amiruddin.github.io/main/"><i className="fa-solid fa-user"></i> Portofolio</a>
           <a className="hover-item" target="_blank" href="https://id.linkedin.com/in/faisal-amiruddin-4965292ba"><i className="fab fa-linkedin"></i> LinkedIn</a>
           <a className="hover-item" target="_blank" href="https://github.com/faisal-amiruddin/"><i className="fab fa-github"></i> Github</a>
           <a className="hover-item" target="_blank" href="https://www.instagram.com/faisalamiruddin_"><i className="fab fa-instagram"></i> Instagram</a>
           <a className="hover-item" target="_blank" href="https://tiktok.com/@lothic_"><i className="fab fa-tiktok"></i> Tiktok</a>
-          <a className="hover-item" target="_blank" href="https://faisal-amiruddin.github.io/portofolio/">Portofolio</a>
         </div>
       );
     }
